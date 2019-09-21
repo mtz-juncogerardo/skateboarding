@@ -1,0 +1,43 @@
+.hero{
+  height: 35em;
+  width: 100vw;
+  background-image: url('../../assets/Images/skateboard-art.jpg');
+  background-size: cover;
+  position: relative;
+  top: 3em;
+  background-position-y: -15em;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.hero-text{
+  width: 30em;
+  font-size: 1em;
+  color: #535353;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  position: relative;
+  bottom: 8em;
+}
+
+.hero-text h3{
+  font-size: 3em;
+  font-weight: bold;
+  width: 10em;
+}
+
+.hero-text button{
+  width: 10em;
+  font-size: 1em;
+  height: 3em;
+}
+
+.hero-text button:hover{
+  -webkit-box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.75);
+}

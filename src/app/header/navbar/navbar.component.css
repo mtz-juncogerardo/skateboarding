@@ -8,4 +8,9 @@ nav{
   justify-content: center;
   align-items: center;
   padding-bottom: 0.5em;
+  padding-top: 1em;
+}
+
+.nav-list li a{
+  margin-right: 12px !important;
 }
