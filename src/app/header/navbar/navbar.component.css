@@ -1,0 +1,11 @@
+nav{
+  height: 2em;
+}
+
+.nav-list{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 0.5em;
+}
