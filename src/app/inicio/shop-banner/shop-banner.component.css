@@ -1,0 +1,34 @@
+.shop-banner-title{
+  font-size: 2em;
+  text-align: center;
+  font-family: 'Permanent Marker', cursive !important;
+  color: #3f3f3f;
+}
+
+.shop-banner-box{
+  width: 100vw;
+  height: 33em;
+  clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
+  display: flex;
+  justify-content: space-between;
+}
+
+.image-box img{
+  height: 30em;
+  width: auto;
+}
+
+.text-box{
+  height: 10em;
+  align-self: center;
+  text-align: center;
+  padding: 20px 55px 20px 35px;
+}
+
+.text-box h3{
+  font-size: 3em !important;
+}
+
+.text-box p{
+  font-size: 1em;
+}

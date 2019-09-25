@@ -9,6 +9,8 @@
 {
   width: 100vw;
   text-align: center;
+  font-family: 'Permanent Marker', cursive !important;
+  color: #3f3f3f;
 }
 
 .productos{

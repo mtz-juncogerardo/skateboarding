@@ -1,0 +1,25 @@
+.us-image{
+  clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
+  height: 15em;
+  margin-top: 50px;
+}
+
+.desc{
+  text-align: justify;
+  font-size: 1.5em !important;
+  margin-top: 50px;
+  padding: 0px 30px;
+  font-family: monospace;
+}
+
+.botones{
+  width: 75em;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.botones a{
+  margin-right: 80px;
+  text-decoration: none;
+}
