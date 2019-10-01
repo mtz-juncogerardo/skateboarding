@@ -33,7 +33,11 @@ header{
   transition: .2s all ease-in-out;
 }
 
-.brand-text{
+.brand-logo img{
+  height: 6em;
+}
+
+/* .brand-text{
     text-transform: uppercase;
     color: #25262a;
     letter-spacing: .2em;
@@ -44,7 +48,7 @@ header{
     border: 2px solid #25262a;
     font-family: 'Permanent Marker', cursive !important;
 }
-
+ */
 .icon-list-container{
   width: 10em;
 }

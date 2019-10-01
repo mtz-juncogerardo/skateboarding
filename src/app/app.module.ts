@@ -14,10 +14,10 @@ import { TiendaComponent } from './tienda/tienda.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
 import { SignInComponent } from './sign-in/sign-in.component';
-import { CarritoComponent } from './carrito/carrito.component';
 import { LabelComponent } from './label/label.component';
 import { RegisterComponent } from './register/register.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { ShopCartComponent } from './shop-cart/shop-cart.component';
 
 @NgModule({
   declarations: [
@@ -33,10 +33,10 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     ContactoComponent,
     NosotrosComponent,
     SignInComponent,
-    CarritoComponent,
     LabelComponent,
     RegisterComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    ShopCartComponent
   ],
   imports: [
     BrowserModule,

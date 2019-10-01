@@ -7,6 +7,7 @@ import { NosotrosComponent } from './nosotros/nosotros.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { RegisterComponent } from './register/register.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { ShopCartComponent } from './shop-cart/shop-cart.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,9 @@ const routes: Routes = [
   },
   {
     path: 'product/details', component: ProductDetailsComponent
+  },
+  {
+    path: 'shop/cart', component: ShopCartComponent
   }
 ];
 

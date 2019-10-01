@@ -1,0 +1,9 @@
+.item-img{
+  height: 8em;
+}
+
+.card a{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
