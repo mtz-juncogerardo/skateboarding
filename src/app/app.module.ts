@@ -1,23 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { NavbarComponent } from './header/navbar/navbar.component';
-import { HeroComponent } from './inicio/hero/hero.component';
-import { FeaturedComponent } from './inicio/featured/featured.component';
-import { ShopBannerComponent } from './inicio/shop-banner/shop-banner.component';
-import { FooterComponent } from './footer/footer.component';
-import { InicioComponent } from './inicio/inicio.component';
-import { TiendaComponent } from './tienda/tienda.component';
-import { ContactoComponent } from './contacto/contacto.component';
-import { NosotrosComponent } from './nosotros/nosotros.component';
-import { SignInComponent } from './sign-in/sign-in.component';
-import { LabelComponent } from './label/label.component';
-import { RegisterComponent } from './register/register.component';
-import { ProductDetailsComponent } from './product-details/product-details.component';
-import { ShopCartComponent } from './shop-cart/shop-cart.component';
+import { HeaderComponent } from './Components/header/header.component';
+import { NavbarComponent } from './Components/header/navbar/navbar.component';
+import { HeroComponent } from './Components/inicio/hero/hero.component';
+import { FeaturedComponent } from './Components/inicio/featured/featured.component';
+import { ShopBannerComponent } from './Components/inicio/shop-banner/shop-banner.component';
+import { FooterComponent } from './Components/footer/footer.component';
+import { InicioComponent } from './Components/inicio/inicio.component';
+import { TiendaComponent } from './Components/tienda/tienda.component';
+import { ContactoComponent } from './Components/contacto/contacto.component';
+import { NosotrosComponent } from './Components/nosotros/nosotros.component';
+import { SignInComponent } from './Components/sign-in/sign-in.component';
+import { LabelComponent } from './Components/label/label.component';
+import { RegisterComponent } from './Components/register/register.component';
+import { ProductDetailsComponent } from './Components/product-details/product-details.component';
+import { ShopCartComponent } from './Components/shop-cart/shop-cart.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +46,12 @@ import { ShopCartComponent } from './shop-cart/shop-cart.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFireStorageModule,
+    AngularFirestoreModule.enablePersistence(),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

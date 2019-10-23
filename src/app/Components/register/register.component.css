@@ -5,6 +5,13 @@
   padding-left: 15px;
 }
 
+.info-text{
+  color: red;
+  font-size: 1em;
+  padding-right: 20px;
+  margin: 0;
+}
+
 .register-wrapper{
   margin-top: 50px;
 }
@@ -25,6 +32,10 @@
   padding-top: 19px;
   color: #777;
   border-top: 1px solid #e5e5e5;
+}
+
+.btn-info{
+  margin-bottom: 20px !important;
 }
 
 /* Customize container */

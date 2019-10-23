@@ -7,12 +7,7 @@
 
       <h1 class="my-4">Categorias</h1>
       <div class="list-group">
-        <a href="#" class="list-group-item">Tablas</a>
-        <a href="#" class="list-group-item">Trucks</a>
-        <a href="#" class="list-group-item">Ruedas</a>
-        <a href="#" class="list-group-item">Baleros</a>
-        <a href="#" class="list-group-item">Tornillos</a>
-        <a href="#" class="list-group-item">Elevadores</a>
+        <a *ngFor="let item of categorias">{{item}}</a>
       </div>
 
     </div>

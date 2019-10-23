@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TiendaComponent implements OnInit {
 
-  routeName: string = "Tienda"
+  routeName = 'Tienda';
+  categorias = ['Tablas', 'Trucks', 'Ruedas', 'Tornillos', 'Elevadores'];
 
   constructor() { }
 
