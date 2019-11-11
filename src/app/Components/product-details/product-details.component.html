@@ -10,9 +10,9 @@
         </div>
 
         <div class="col-md-7">
-          <div class="product-title">Daewon Song Fragments</div>
+          <div class="product-title">{{productName}}</div>
           <div class="product-desc">
-            Este diseño de tabla Daewon Song combina lo abstracto con diferentes fotografias. Sin duda un diseño unico
+            {{productDesc}}
           </div>
 
           <hr />
@@ -20,7 +20,7 @@
           <div class="product-stock">En Stock</div>
           <hr />
           <div class="btn-group cart">
-            <button type="button" class="btn btn-success">
+            <button (click)="addToCart()" type="button" class="btn btn-success">
               Añadir al Carrito
             </button>
           </div>

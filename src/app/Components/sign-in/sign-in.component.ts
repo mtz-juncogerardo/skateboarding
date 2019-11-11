@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -16,9 +17,7 @@ export class SignInComponent implements OnInit {
   }
 
   sendSignData() {
-    this.signIn.auth.signInWithEmailAndPassword(this.email, this.password)
-    .then((res) => console.log('Login', res))
-    .catch((err) => console.log('Error', err))
+    this.signIn.auth.signInWithEmailAndPassword(this.email, this.password);
   }
 
   ngOnInit() {

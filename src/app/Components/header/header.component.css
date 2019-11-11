@@ -33,22 +33,20 @@ header{
   transition: .2s all ease-in-out;
 }
 
-.brand-logo img{
-  height: 6em;
+.brand-logo{
+  display: flex;
+  flex-direction: column;
 }
 
-/* .brand-text{
-    text-transform: uppercase;
-    color: #25262a;
-    letter-spacing: .2em;
-    font-size: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
-    border: 2px solid #25262a;
-    font-family: 'Permanent Marker', cursive !important;
+.brand-logo img{
+  height: 6em;
+  max-width: 100px;
 }
- */
+
+.brand-text{
+  font-family: 'Permanent Marker', cursive;
+}
+
 .icon-list-container{
   width: 10em;
 }

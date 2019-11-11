@@ -38,7 +38,8 @@ export class RegisterComponent implements OnInit {
 
     if (this.infoText.length === 0) {
       this.authService.createUser(this.email, this.password)
-      .then(() => console.log('Auth Data Saved'));
+      .then(() => console.log('Auth Data Saved'))
+      .catch((err) => this.infoText.push(err.message));
 
       this.db = this.afs.collection('users');
       this.db.add({

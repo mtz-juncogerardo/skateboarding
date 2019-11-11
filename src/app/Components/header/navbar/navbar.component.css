@@ -1,5 +1,5 @@
 nav{
-  height: 2em;
+  height: 1em;
 }
 
 .nav-list{
@@ -13,5 +13,6 @@ nav{
 
 .nav-list li a{
   margin-right: 12px !important;
+  cursor: pointer;
 }
 
