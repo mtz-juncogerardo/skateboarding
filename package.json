@@ -7,8 +7,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy": "gh-pages -d dist"
   },
+  "homepage": "https://mtz-juncogerardo.io/skateboarding",
   "private": true,
   "dependencies": {
     "@angular/animations": "~8.2.5",
@@ -22,6 +24,7 @@
     "@angular/router": "~8.2.5",
     "bootstrap": "^4.3.1",
     "firebase": "^7.2.1",
+    "gh-pages": "^2.1.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
