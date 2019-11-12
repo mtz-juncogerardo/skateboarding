@@ -3,7 +3,7 @@
 .hero{
   height: 35em;
   width: 100vw;
-  background-image: url('../../../../assets/Images/skateboard-art.jpg');
+  background-image: url('../../../../assets/images/skateboard-art.jpg');
   background-size: cover;
   position: relative;
   top: 3em;
