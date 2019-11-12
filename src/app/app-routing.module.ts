@@ -21,6 +21,9 @@ const routes: Routes = [
     path: 'shop', component: TiendaComponent
   },
   {
+    path: 'shop/:category', component: TiendaComponent
+  },
+  {
     path: 'contact', component: ContactoComponent
   },
   {

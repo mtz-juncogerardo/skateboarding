@@ -1,4 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
+import { CarritoService } from '../../carrito.service';
 
 @Component({
   selector: 'app-product-details',
@@ -7,14 +8,14 @@ import { Component, OnInit, Output } from '@angular/core';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  @Output() itemCount = [];
   productDesc = 'Inserte Descripción';
   productName = 'Product Title';
 
-  constructor() { }
+  constructor(private carritoService: CarritoService) { }
 
-  addToCart() {
-    this.itemCount.push(1);
+  pushToCart() {
+    this.carritoService.addToCart('item');
+    console.log(this.carritoService.shopCart);
   }
 
   ngOnInit() {

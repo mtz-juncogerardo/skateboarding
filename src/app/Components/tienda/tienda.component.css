@@ -7,3 +7,9 @@
   justify-content: space-evenly;
   align-items: center;
 }
+
+.categories{
+  cursor: pointer;
+  text-decoration: underline !important;
+  color: blue !important;
+}
