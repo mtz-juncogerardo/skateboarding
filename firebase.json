@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "skateboarding",
+      "public": "dist/skateboarding",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

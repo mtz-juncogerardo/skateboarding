@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ruberik-skateboarding": {
+      "hosting": {
+        "skateboarding": [
+          "ruberik-skateboarding"
+        ]
+      }
+    }
+  }
+}
