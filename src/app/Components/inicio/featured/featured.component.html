@@ -4,35 +4,15 @@
     <h3>Productos Nuevos</h3>
   </div>
   <div class="productos">
-    <div class="product-item">
+    <div class="product-item" *ngFor="let item of products">
       <span class="product-details">
         <div class="product-detail-wrapper">
-            <p>Daewon Song</p>
-            <p>$1,200.00</p>
-            <a href='/product/details' class="btn btn-primary">Comprar Ahora</a>
+            <p>{{item.name}}</p>
+            <p>{{item.price | currency}}</p>
+            <a [href]="'/product/' + item.id" class="btn btn-primary">Comprar Ahora</a>
         </div>
       </span>
-      <img class="product-img" src="../../../assets/images/Producto_Skateboard/Almost_DaewonSong_Frente.png" alt="">
-    </div>
-    <div class="product-item">
-      <span class="product-details">
-          <div class="product-detail-wrapper">
-              <p>Daewon Song</p>
-              <p>$1,200.00</p>
-              <a href='/product/details' class="btn btn-primary">Comprar Ahora</a>
-          </div>
-      </span>
-      <img class="product-img" src="../../assets/images/Producto_Skateboard/Almost_LewisMarnell_Frente.png" alt="">
-    </div>
-    <div class="product-item">
-      <span class="product-details">
-          <div class="product-detail-wrapper">
-              <p>Daewon Song</p>
-              <p>$1,200.00</p>
-              <a href='/product/details' class="btn btn-primary">Comprar Ahora</a>
-          </div>
-      </span>
-      <img class="product-img" src="../../assets/images/Producto_Skateboard/Blind_McEntire_Frente.png" alt="">
+      <img class="product-img" [src]="item.image1" alt="">
     </div>
   </div>
 </div>

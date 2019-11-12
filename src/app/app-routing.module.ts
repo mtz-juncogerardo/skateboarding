@@ -36,7 +36,7 @@ const routes: Routes = [
     path: 'signin/register', component: RegisterComponent
   },
   {
-    path: 'product/details', component: ProductDetailsComponent
+    path: 'product/:id', component: ProductDetailsComponent
   },
   {
     path: 'shop/cart', component: ShopCartComponent
