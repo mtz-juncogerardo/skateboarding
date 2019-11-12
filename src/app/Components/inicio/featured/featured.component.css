@@ -76,3 +76,11 @@
 .product-item:hover > .product-img{
   transform: scale(1.1);
 }
+
+@media screen and (max-width: 575px)
+{
+  .productos{
+    flex-wrap: wrap;
+    height: fit-content;
+  }
+}

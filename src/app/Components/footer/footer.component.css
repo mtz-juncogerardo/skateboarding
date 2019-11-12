@@ -64,3 +64,9 @@ footer span{
   color: rgb(136, 134, 134);
 }
 
+@media screen and (max-width: 450px){
+  footer{
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

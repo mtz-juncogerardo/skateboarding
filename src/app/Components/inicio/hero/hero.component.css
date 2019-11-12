@@ -48,3 +48,28 @@
 -moz-box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.75);
 box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.75);
 }
+
+@media screen and (max-width: 575px){
+  .hero{
+    position: relative;
+    top: 5em;
+    z-index: -1;
+  }
+
+  .hero-text{
+    bottom: 18em;
+  }
+}
+
+@media screen and (max-width: 450px){
+  .hero-text{
+    right: -5em;
+  }
+}
+
+@media screen and (max-width: 400px){
+  .hero-text{
+    right: -8em;
+    font-size: 0.9em;
+  }
+}
