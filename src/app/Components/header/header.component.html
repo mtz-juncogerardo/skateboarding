@@ -11,8 +11,8 @@
               <li>
                 <a class="fas fa-user" routerLink='/signin'></a></li>
               <li>
-                <a class="fas fa-shopping-cart position-relative" href='/shop/cart'>
-                  <span class="item-count">{{itemCount}}</span>
+                <a class="fas fa-shopping-cart position-relative" routerLink='/cart'>
+                  <span class="item-count">{{itemCount$ | async}}</span>
                 </a>
               </li>
             </ul>

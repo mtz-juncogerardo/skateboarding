@@ -9,7 +9,7 @@
         <div class="product-detail-wrapper">
             <p>{{item.name}}</p>
             <p>{{item.price | currency}}</p>
-            <a [href]="'/product/' + item.id" class="btn btn-primary">Comprar Ahora</a>
+            <a [routerLink]="'/product/' + item.id" class="btn btn-primary">Comprar Ahora</a>
         </div>
       </span>
       <img class="product-img" [src]="item.image1" alt="">

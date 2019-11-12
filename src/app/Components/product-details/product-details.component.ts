@@ -15,6 +15,7 @@ export class ProductDetailsComponent implements OnInit {
   productPrice = 0;
   productImage1 = '';
   productImage2 = '';
+  id = '';
 
   constructor(private carritoService: CarritoService,
               private route: ActivatedRoute,
@@ -22,44 +23,50 @@ export class ProductDetailsComponent implements OnInit {
   ) { }
 
   pushToCart() {
-    this.carritoService.addToCart('item');
-    console.log(this.carritoService.shopCart);
+    this.carritoService.addToCart({
+      name: this.productName,
+      id: this.id,
+      description: this.productDesc,
+      image1: this.productImage1,
+      image2: this.productImage2,
+      price: this.productPrice
+    });
   }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
-      const id = params.id;
+      this.id = params.id;
 
-      if (this.productService.getProductTabla(id)) {
-        const exactProduct = this.productService.getProductTabla(id);
+      if (this.productService.getProductTabla(this.id)) {
+        const exactProduct = this.productService.getProductTabla(this.id);
         this.productDesc = exactProduct.description;
         this.productName = exactProduct.name;
         this.productImage1 = exactProduct.image1;
         this.productImage2 = exactProduct.image2;
         this.productPrice = exactProduct.price;
-      } else if (this.productService.getProductRueda(id)) {
-        const exactProduct = this.productService.getProductRueda(id);
+      } else if (this.productService.getProductRueda(this.id)) {
+        const exactProduct = this.productService.getProductRueda(this.id);
         this.productDesc = exactProduct.description;
         this.productName = exactProduct.name;
         this.productImage1 = exactProduct.image1;
         this.productImage2 = exactProduct.image2;
         this.productPrice = exactProduct.price;
-      } else if (this.productService.getProductTornillo(id)) {
-        const exactProduct = this.productService.getProductTornillo(id);
+      } else if (this.productService.getProductTornillo(this.id)) {
+        const exactProduct = this.productService.getProductTornillo(this.id);
         this.productDesc = exactProduct.description;
         this.productName = exactProduct.name;
         this.productImage1 = exactProduct.image1;
         this.productImage2 = exactProduct.image2;
         this.productPrice = exactProduct.price;
-      } else if (this.productService.getProductElevador(id)) {
-        const exactProduct = this.productService.getProductElevador(id);
+      } else if (this.productService.getProductElevador(this.id)) {
+        const exactProduct = this.productService.getProductElevador(this.id);
         this.productDesc = exactProduct.description;
         this.productName = exactProduct.name;
         this.productImage1 = exactProduct.image1;
         this.productImage2 = exactProduct.image2;
         this.productPrice = exactProduct.price;
-      } else if (this.productService.getProductTruck(id)) {
-        const exactProduct = this.productService.getProductTruck(id);
+      } else if (this.productService.getProductTruck(this.id)) {
+        const exactProduct = this.productService.getProductTruck(this.id);
         this.productDesc = exactProduct.description;
         this.productName = exactProduct.name;
         this.productImage1 = exactProduct.image1;

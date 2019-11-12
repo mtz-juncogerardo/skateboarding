@@ -39,14 +39,14 @@ const routes: Routes = [
     path: 'product/:id', component: ProductDetailsComponent
   },
   {
-    path: 'shop/cart', component: ShopCartComponent
+    path: 'cart', component: ShopCartComponent
   }
 ];
 
 export const routing = RouterModule.forRoot(routes);
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'top'})],
   exports: [RouterModule]
 })
 

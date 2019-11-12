@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { Product } from './product.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  tablas = [
+  tablas: Product[] = [
     {
       id: '1',
       image1: '../assets/images/Producto_Skateboard/Almost_DaewonSong_Frente.png',
@@ -87,7 +88,7 @@ export class ProductService {
       description: 'Inserte Descripción'
     },
    ];
-  trucks = [
+  trucks: Product[] = [
     {
     id: '12',
     image1: '../assets/images/Producto_Skateboard/Truck_Thunder_Shane_Oneill.png',
@@ -97,7 +98,7 @@ export class ProductService {
     description: 'Inserte Descripción'
     }
   ];
-  ruedas = [
+  ruedas: Product[] = [
     {
       id: '13',
       image1: '../assets/images/Producto_Skateboard/Spitfire_Old_English_Wheels_Black_53mm.png',
@@ -115,8 +116,8 @@ export class ProductService {
       description: 'Inserte Descripción'
     }
   ];
-  tornillos = [];
-  elevadores = [];
+  tornillos: Product[] = [];
+  elevadores: Product[] = [];
 
   constructor() { }
 

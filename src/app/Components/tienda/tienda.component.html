@@ -24,13 +24,13 @@
 
         <div *ngFor='let item of productRender' class="col-lg-4 col-md-6 mb-4">
           <div class="card h-100">
-            <a href="/product/details">
+            <a [routerLink]="'/product/' + item.id">
               <img class="item-img" [src]="item.image1"  alt="">
               <img class="item-img" [src]="item.image2"  alt="">
             </a>
             <div class="card-body">
               <h4 class="card-title">
-                <a [href]="'/product/' + item.id">{{item.name}}</a>
+                <a [routerLink]="'/product/' + item.id">{{item.name}}</a>
               </h4>
               <h5>{{item.price | currency}}</h5>
             </div>

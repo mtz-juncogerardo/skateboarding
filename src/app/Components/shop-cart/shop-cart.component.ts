@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CarritoService } from '../../carrito.service';
+import { Observable } from 'rxjs';
+import { Product } from '../../product.model';
 
 @Component({
   selector: 'app-shop-cart',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShopCartComponent implements OnInit {
 
-  routeName: string ="Tienda / Carrito"
+  routeName = 'Tienda / Carrito';
+  products$: Observable<Product[]>;
 
-  constructor() { }
+  constructor(private carritoService: CarritoService) {
+    this.products$ = this.carritoService.shopCart$;
+  }
+
+  removeProduct(idx){
+    this.carritoService.removeProduct(idx);
+  }
+
+
 
   ngOnInit() {
   }

@@ -1,5 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { CarritoService } from '../../carrito.service';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -8,14 +10,15 @@ import { CarritoService } from '../../carrito.service';
 })
 export class HeaderComponent implements OnInit {
 
-  itemCount = 0;
+  itemCount$: Observable<number>;
 
   constructor(private carritoService: CarritoService) {
+    this.itemCount$ = this.carritoService.shopCart$
+    .pipe(map(products => products.length));
   }
 
 
   ngOnInit() {
-    this.itemCount = this.carritoService.shopCart.length;
   }
 
 }
