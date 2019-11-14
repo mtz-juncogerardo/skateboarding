@@ -1,5 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { CarritoService } from '../../carrito.service';
+import { AuthService } from '../../auth.service';
+import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
@@ -10,15 +12,24 @@ import { Observable } from 'rxjs';
 })
 export class HeaderComponent implements OnInit {
 
+  user: firebase.User;
   itemCount$: Observable<number>;
 
-  constructor(private carritoService: CarritoService) {
+  constructor(private carritoService: CarritoService, private authService: AuthService) {
     this.itemCount$ = this.carritoService.shopCart$
     .pipe(map(products => products.length));
   }
 
+  logout() {
+    this.authService.signOut();
+  }
 
   ngOnInit() {
+    this.authService.getUserState()
+    .subscribe(user => {
+      this.user = user;
+      console.log(this.user);
+    });
   }
 
 }

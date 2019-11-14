@@ -8,34 +8,34 @@
 						<div class="row">
 							<div class="col-sm-6 form-group">
 								<label>Nombre Completo</label>
-								<input [(ngModel)]="name" type="text" class="form-control" name="name">
+								<input [(ngModel)]="userData.name" type="text" class="form-control" name="name">
 							</div>
 						</div>
 						<div class="form-group">
               <label>Dirección</label>
-              <input name="direction" [(ngModel)]="direction" placeholder="Esta es la que se utiliza para los envíos" rows="3" class="form-control" required>
+              <input name="direction" [(ngModel)]="userData.direction" placeholder="Esta es la que se utiliza para los envíos" rows="3" class="form-control" required>
 						</div>
 						<div class="row">
 							<div class="col-sm-4 form-group">
 								<label>Ciudad</label>
-								<input name="city" [(ngModel)]="city" type="text" placeholder="" class="form-control" required>
+								<input name="city" [(ngModel)]="userData.city" type="text" placeholder="" class="form-control" required>
 							</div>
 							<div class="col-sm-4 form-group">
 								<label>Municipio</label>
-								<input name="municipio" [(ngModel)]="municipio" type="text" placeholder="" class="form-control" required>
+								<input name="municipio" [(ngModel)]="userData.municipio" type="text" placeholder="" class="form-control" required>
 							</div>
 							<div class="col-sm-4 form-group">
 								<label>Codigo Postal</label>
-								<input name="cp" [(ngModel)]="cp" type="text" placeholder="" class="form-control" required>
+								<input name="cp" [(ngModel)]="userData.cp" type="text" placeholder="" class="form-control" required>
 							</div>
 						</div>
 					<div class="form-group">
 						<label>Telefono</label>
-						<input name="phone" [(ngModel)]="phone" type="text" placeholder="" class="form-control" required>
+						<input name="phone" [(ngModel)]="userData.phone" type="text" placeholder="" class="form-control" required>
 					</div>
 					<div class="form-group">
 						<label>Email</label>
-						<input name="email" [(ngModel)]="email" type="text" placeholder="" class="form-control" required>
+						<input name="email" [(ngModel)]="userData.email" type="text" placeholder="" class="form-control" required>
 					</div>
 					<div class="form-group">
 						<label>Contraseña</label>

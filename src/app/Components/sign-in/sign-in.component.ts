@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { Router } from '@angular/router';
+import { AuthService } from '../../auth.service';
+
 
 @Component({
   selector: 'app-sign-in',
@@ -12,15 +12,20 @@ export class SignInComponent implements OnInit {
   routeName = 'Iniciar Sesión';
   email = '';
   password = '';
+  authError: any;
 
-  constructor(private signIn: AngularFireAuth) {
+  constructor(private authService: AuthService) {
   }
 
   sendSignData() {
-    this.signIn.auth.signInWithEmailAndPassword(this.email, this.password);
+    this.authService.login(this.password, this.email);
   }
 
   ngOnInit() {
+    this.authService.eventAuthError$.subscribe(data =>{
+      this.authError = data;
+      console.log(this.authError);
+    });
   }
 
 }

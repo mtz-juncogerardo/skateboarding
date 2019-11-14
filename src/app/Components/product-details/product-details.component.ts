@@ -1,7 +1,8 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { CarritoService } from '../../carrito.service';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { ProductService } from '../../product.service';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-product-details',
@@ -19,10 +20,12 @@ export class ProductDetailsComponent implements OnInit {
   productExtra = '';
   id = '';
   trucks = false;
+  user: firebase.User;
 
   constructor(private carritoService: CarritoService,
               private route: ActivatedRoute,
-              private productService: ProductService
+              private productService: ProductService,
+              private authService: AuthService
   ) { }
 
   pushToCart() {
@@ -39,6 +42,11 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.getUserState()
+  .subscribe(user => {
+    this.user = user;
+  });
+
     this.route.params.subscribe((params: Params) => {
       this.id = params.id;
 

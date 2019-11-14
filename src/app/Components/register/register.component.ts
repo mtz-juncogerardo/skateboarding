@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth.service';
 import { AngularFirestore } from '@angular/fire/firestore';
-
+import { User } from '../../user.model';
 
 
 
@@ -12,18 +12,18 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class RegisterComponent implements OnInit {
 
-
-    name: string;
-    direction: string;
-    city: string;
-    municipio: string;
-    cp: number;
-    phone: number;
-    email: string;
-    password = '';
-    rePass = '';
-
-
+  userData: User = {
+    name: '',
+    direction: '',
+    city: '',
+    municipio: '',
+    cp: '',
+    phone: '',
+    email: '',
+  };
+  password = '';
+  rePass = '';
+  authError = '';
 
   routeName = 'Iniciar Sesión / Registrarse';
   infoText = [];
@@ -37,47 +37,32 @@ export class RegisterComponent implements OnInit {
     this.checkForm();
 
     if (this.infoText.length === 0) {
-      this.authService.createUser(this.email, this.password)
-      .then(() => console.log('Auth Data Saved'))
-      .catch((err) => this.infoText.push(err.message));
-
-      this.db = this.afs.collection('users');
-      this.db.add({
-        name: this.name,
-        direction: this.direction,
-        city: this.city,
-        municipio: this.municipio,
-        cp: this.cp,
-        phone: this.phone,
-        email: this.email
-      })
-      .then(() => console.log('User Info Saved'));
-
+      this.authService.createUser(this.userData, this.password);
     }
 
 
   }
 
   checkForm() {
-    if (!this.name) {
+    if (!this.userData.name) {
       this.infoText.push('**Falta el Nombre');
     }
-    if (!this.direction) {
+    if (!this.userData.direction) {
       this.infoText.push('**Falta la dirección');
     }
-    if (!this.city) {
+    if (!this.userData.city) {
       this.infoText.push('**Falta la ciudad');
     }
-    if (!this.municipio) {
+    if (!this.userData.municipio) {
       this.infoText.push('**Falta el municipio');
     }
-    if (!this.cp) {
+    if (!this.userData.cp) {
       this.infoText.push('**Falta el codigo postal');
     }
-    if (!this.phone) {
+    if (!this.userData.phone) {
       this.infoText.push('**Falta el numero de telefono');
     }
-    if (!this.email) {
+    if (!this.userData.email) {
       this.infoText.push('**Falta el email');
     }
 
@@ -88,9 +73,17 @@ export class RegisterComponent implements OnInit {
     if (this.password.length < 7) {
       this.infoText.push('**La contraseña debe ser de 8 caracteres mínimo');
     }
+
+    if(this.authError) {
+      this.infoText.push(this.authError);
+    }
   }
 
   ngOnInit() {
+
+    this.authService.eventAuthError$.subscribe(data => {
+      this.authError = data;
+    });
   }
 
 }

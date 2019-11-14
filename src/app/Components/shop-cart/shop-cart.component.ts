@@ -16,25 +16,28 @@ export class ShopCartComponent implements OnInit {
   total: number;
 
   constructor(private carritoService: CarritoService) {
-    const totalPrice = [];
+
 
     this.carritoService.shopCart$.subscribe(data => {
       this.shopCart = data;
-    });
 
+      this.getTotal();
+    });
+  }
+
+  getTotal() {
+    const totalPrice = [];
     for (const item of this.shopCart) {
       console.log(item.price);
       totalPrice.push(item.price);
     }
 
     this.total = totalPrice.reduce((a, b) => a + b , 0);
-
   }
-
-
 
   removeProduct(idx){
     this.carritoService.removeProduct(idx);
+    this.getTotal();
   }
 
 

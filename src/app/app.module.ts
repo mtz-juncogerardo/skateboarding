@@ -25,7 +25,6 @@ import { LabelComponent } from './Components/label/label.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 import { ShopCartComponent } from './Components/shop-cart/shop-cart.component';
-import { PaypalComponent } from './paypal/paypal.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +44,6 @@ import { PaypalComponent } from './paypal/paypal.component';
     RegisterComponent,
     ProductDetailsComponent,
     ShopCartComponent,
-    PaypalComponent
   ],
   imports: [
     BrowserModule,

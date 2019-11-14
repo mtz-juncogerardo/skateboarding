@@ -8,8 +8,18 @@
 
           <div class="icon-list-container">
             <ul class="icon-list">
-              <li>
-                <a class="fas fa-user" routerLink='/signin'></a></li>
+              <li *ngIf="user; else notAuth">
+                <a class="displayName" (click)="logout()">
+                  {{user.displayName}}<br>
+                  Cerrar Sesión
+                </a>
+              </li>
+
+              <ng-template #notAuth>
+                  <li>
+                      <a class="fas fa-user" routerLink='/signin'></a>
+                  </li>
+              </ng-template>
               <li>
                 <a class="fas fa-shopping-cart position-relative" routerLink='/cart'>
                   <span class="item-count">{{itemCount$ | async}}</span>
