@@ -6,4 +6,5 @@ export interface User {
     cp: string;
     phone: string;
     email: string;
+    administrator: boolean;
 }

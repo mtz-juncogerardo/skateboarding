@@ -1,46 +1,53 @@
 <app-label [routeName]='routeName'></app-label>
 
-<div class="card">
-  <table class="table table-hover shopping-cart-wrap">
-  <thead class="text-muted">
-  <tr>
-    <th scope="col">Product</th>
-    <th scope="col" width="120">Price</th>
-    <th scope="col" width="200" class="text-right">Action</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let item of shopCart; let idx = index">
-    <td>
-  <figure class="media">
-    <div class="img-wrap"><img [src]="item.image1" class="img-thumbnail img-sm"></div>
-    <figcaption class="media-body">
-      <h6 class="title text-truncate">{{item.name}}</h6>
-      <dl class="param param-inline small">
-        <dt>{{item.description}}</dt>
-        <dd>{{item.name}}</dd>
-      </dl>
-    </figcaption>
-  </figure>
-    </td>
-    <td>
-      <div class="price-wrap">
-        <var class="price">{{item.price | currency}}</var>
-        <small class="text-muted">MXN</small>
-      </div>
-    </td>
-    <td class="text-right">
-    <a (click)="removeProduct(idx)" class="btn btn-outline-danger"> × Remove</a>
-    </td>
-  </tr>
+<div *ngIf="!paidFor">
 
-  </tbody>
-  </table>
+  <div class="card">
+    <table class="table table-hover shopping-cart-wrap">
+      <thead class="text-muted">
+        <tr>
+          <th scope="col">Product</th>
+          <th scope="col" width="120">Price</th>
+          <th scope="col" width="200" class="text-right">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of shopCart; let idx = index">
+          <td>
+            <figure class="media">
+              <div class="img-wrap"><img [src]="item.image1" class="img-thumbnail img-sm"></div>
+              <figcaption class="media-body">
+                <h6 class="title text-truncate">{{item.name}}</h6>
+                <dl class="param param-inline small">
+                  <dt>{{item.description}}</dt>
+                  <dd>{{item.name}}</dd>
+                </dl>
+              </figcaption>
+            </figure>
+          </td>
+          <td>
+            <div class="price-wrap">
+              <var class="price">{{item.price | currency}}</var>
+              <small class="text-muted">MXN</small>
+            </div>
+          </td>
+          <td class="text-right">
+            <a (click)="removeProduct(idx)" class="btn btn-outline-danger"> × Remove</a>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
   </div>
+</div>
 
-  <div class=total>
-    <h1 [style.textAlign]="'center'">Total de Compra: <span [style.color]="'blue'">{{total | currency}} MXN</span></h1>
-  </div>
+<div class=total>
+  <h1 [style.textAlign]="'center'">Total de Compra: <span [style.color]="'blue'">{{total | currency}} MXN</span></h1>
+</div>
+<div class="paypal" #paypal></div>
 
 
 
+<div *ngIf="paidFor">
+  <h1>TU COMPRA FUE AUTORIZADA</h1>
+</div>

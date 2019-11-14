@@ -10,7 +10,6 @@
             <ul class="icon-list">
               <li *ngIf="user; else notAuth">
                 <a class="displayName" (click)="logout()">
-                  {{user.displayName}}<br>
                   Cerrar Sesión
                 </a>
               </li>

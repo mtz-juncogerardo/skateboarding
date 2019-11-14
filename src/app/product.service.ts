@@ -164,6 +164,7 @@ export class ProductService {
   ];
   tornillos: Product[] = [];
   elevadores: Product[] = [];
+  tennis: Product[] = [];
 
   constructor() { }
 
@@ -187,6 +188,10 @@ export class ProductService {
     return this.elevadores;
   }
 
+  getTennis() {
+    return this.elevadores;
+  }
+
   getProductTabla(id: string) {
     return this.tablas.find(item => id === item.id);
   }
@@ -204,6 +209,10 @@ export class ProductService {
   }
 
   getProductElevador(id: string) {
+    return this.elevadores.find(item => id === item.id);
+  }
+
+  getProductTennis(id: string) {
     return this.elevadores.find(item => id === item.id);
   }
 }

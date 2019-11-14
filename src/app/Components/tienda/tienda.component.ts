@@ -62,6 +62,13 @@ export class TiendaComponent implements OnInit {
             this.productRender.push(item);
           });
           break;
+          case 'tennis':
+          this.trucks = false;
+          this.productRender = [];
+          this.productService.getTennis().forEach(item => {
+            this.productRender.push(item);
+          });
+          break;
       }
     });
   }

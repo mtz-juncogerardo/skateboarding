@@ -8,11 +8,15 @@ import { SignInComponent } from './Components/sign-in/sign-in.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 import { ShopCartComponent } from './Components/shop-cart/shop-cart.component';
+import { AdministratorComponent } from './Components/administrator/administrator.component';
 
 
 const routes: Routes = [
   {
     path: '', redirectTo: '/home', pathMatch: 'full'
+  },
+  {
+    path: 'administrador/ruben', component: AdministratorComponent
   },
   {
     path: 'home', component: InicioComponent

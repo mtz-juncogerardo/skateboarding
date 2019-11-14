@@ -20,6 +20,7 @@ export class RegisterComponent implements OnInit {
     cp: '',
     phone: '',
     email: '',
+    administrator: false
   };
   password = '';
   rePass = '';

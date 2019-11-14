@@ -1,0 +1,14 @@
+<div class='container'>
+  <h2 *ngIf="userId == 'pn3CbyqvAZSnbuXBuZ0Z4UCDIUM2' || userId == 'PCQE3fNIA8hY80f1fHo70gF5NxC2'; else notAdmin">
+    Bienvenido {{user.displayName}}
+  </h2>
+
+  <ng-template #notAdmin>
+    <h2>
+      Acceso Restringido
+    </h2>
+    <a href='/home'>
+      Regresar
+    </a>
+  </ng-template>
+</div>

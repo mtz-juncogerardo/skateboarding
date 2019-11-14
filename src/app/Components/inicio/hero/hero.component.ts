@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../../auth.service';
 
 @Component({
   selector: 'app-hero',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeroComponent implements OnInit {
 
-  constructor() { }
+  user: firebase.User;
+
+  constructor(private authService: AuthService) {
+  }
 
   ngOnInit() {
+    this.authService.getUserState()
+    .subscribe(user => {
+      this.user = user;
+      console.log(this.user);
+    });
   }
 
 }

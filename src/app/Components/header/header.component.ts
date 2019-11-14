@@ -1,7 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { CarritoService } from '../../carrito.service';
 import { AuthService } from '../../auth.service';
-import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
