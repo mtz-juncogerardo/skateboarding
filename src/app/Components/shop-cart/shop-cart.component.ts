@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CarritoService } from '../../carrito.service';
 import { Observable } from 'rxjs';
 import { Product } from '../../product.model';
+import { async } from 'q';
 
 @Component({
   selector: 'app-shop-cart',
@@ -11,11 +12,26 @@ import { Product } from '../../product.model';
 export class ShopCartComponent implements OnInit {
 
   routeName = 'Tienda / Carrito';
-  products$: Observable<Product[]>;
+  shopCart: Product[];
+  total: number;
 
   constructor(private carritoService: CarritoService) {
-    this.products$ = this.carritoService.shopCart$;
+    const totalPrice = [];
+
+    this.carritoService.shopCart$.subscribe(data => {
+      this.shopCart = data;
+    });
+
+    for (const item of this.shopCart) {
+      console.log(item.price);
+      totalPrice.push(item.price);
+    }
+
+    this.total = totalPrice.reduce((a, b) => a + b , 0);
+
   }
+
+
 
   removeProduct(idx){
     this.carritoService.removeProduct(idx);

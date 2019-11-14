@@ -10,7 +10,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let item of (products$ | async); let idx = index">
+  <tr *ngFor="let item of shopCart; let idx = index">
     <td>
   <figure class="media">
     <div class="img-wrap"><img [src]="item.image1" class="img-thumbnail img-sm"></div>
@@ -38,7 +38,9 @@
   </table>
   </div>
 
-  <div class="paypal"></div>
+  <div class=total>
+    <h1 [style.textAlign]="'center'">Total de Compra: <span [style.color]="'blue'">{{total | currency}} MXN</span></h1>
+  </div>
 
 
 
