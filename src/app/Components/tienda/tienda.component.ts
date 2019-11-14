@@ -12,6 +12,7 @@ export class TiendaComponent implements OnInit {
 
   routeName = 'Tienda';
   productRender = [];
+  trucks = false;
 
   constructor(
     private router: Router,
@@ -27,30 +28,35 @@ export class TiendaComponent implements OnInit {
 
       switch (category) {
         case 'tablas':
+          this.trucks = false;
           this.productRender = [];
           this.productService.getTablas().forEach(item => {
             this.productRender.push(item);
           });
           break;
         case 'ruedas':
+          this.trucks = false;
           this.productRender = [];
           this.productService.getRuedas().forEach(item => {
-            this.productRender.push(item);
+          this.productRender.push(item);
           });
           break;
         case 'trucks':
+          this.trucks = true;
           this.productRender = [];
           this.productService.getTrucks().forEach(item => {
-            this.productRender.push(item);
+          this.productRender.push(item);
           });
           break;
         case 'tornillos':
+          this.trucks = false;
           this.productRender = [];
           this.productService.getTornillos().forEach(item => {
             this.productRender.push(item);
           });
           break;
         case 'elevadores':
+          this.trucks = false;
           this.productRender = [];
           this.productService.getElevadores().forEach(item => {
             this.productRender.push(item);

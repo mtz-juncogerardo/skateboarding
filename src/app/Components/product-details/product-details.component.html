@@ -5,7 +5,7 @@
       <div class="container product-wrapper">
 
         <div class="product-images">
-          <img [src]="productImage1" alt="frente">
+          <img [style.height]="trucks ? '8em' : 'auto'" [src]="productImage1" alt="frente">
           <img [src]="productImage2" *ngIf="productImage2" alt="vuelta">
         </div>
 
@@ -32,8 +32,8 @@
     <hr>
     <div class="product-desc">
       <h3>Detalles</h3>
-      <li>Medida: 8.25"</li>
-      <li>INCLUYE LIJA</li>
+      <li>{{productSize}}</li>
+      <li>{{productExtra}}</li>
     </div>
 
   </div>

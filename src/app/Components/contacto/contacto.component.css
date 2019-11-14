@@ -46,4 +46,25 @@ form{
   text-decoration: none;
 }
 
+@media screen and (max-width: 550px){
+  .contact-wrapper{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .social-text{
+    font-size: 0.8em;
+    width: 80vw;
+  }
+
+  .social-text h3{
+    width: 5em;
+  }
+
+  form{
+    width: 90vw;
+  }
+}
+
 

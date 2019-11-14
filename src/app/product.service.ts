@@ -13,7 +13,9 @@ export class ProductService {
       image2: '../assets/images/Producto_Skateboard/Almost_DaewonSong_Vuelta.png',
       name: 'Almost DaewonSong',
       price: 1200,
-      description: 'Inserte Descripción'
+      description: 'Las mejores tablas, al mejor precio. Si tienes alguna inquietud no dude en contactarnos.',
+      medida: '8,25',
+      extras: 'Incluye Lija'
     },
     {
       id: '2',
@@ -21,7 +23,9 @@ export class ProductService {
       image2: '../assets/images/Producto_Skateboard/Almost_LewisMarnell_Vuelta.png',
       name: 'Almost LewisMarnell',
       price: 1200,
-      description: 'Inserte Descripción'
+      description: 'Las mejores tablas, al mejor precio. Si tienes alguna inquietud no dude en contactarnos.',
+      medida: '8,25',
+      extras: 'Incluye Lija'
     },
     {
       id: '3',
@@ -29,7 +33,9 @@ export class ProductService {
       image2: '../assets/images/Producto_Skateboard/Blind_McEntire_Vuelta.png',
       name: 'Blind McEntire',
       price: 1200,
-      description: 'Inserte Descripción'
+      description: 'Las mejores tablas, al mejor precio. Si tienes alguna inquietud no dude en contactarnos.',
+      medida: '8,25',
+      extras: 'Incluye Lija'
     },
     {
       id: '4',
@@ -37,7 +43,9 @@ export class ProductService {
       image2: '../assets/images/Producto_Skateboard/Creature_TeamGust_Vuelta.png',
       name: 'Creature TeamGust',
       price: 1200,
-      description: 'Inserte Descripción'
+      description: 'Las mejores tablas, al mejor precio. Si tienes alguna inquietud no dude en contactarnos.',
+      medida: '8,25',
+      extras: 'Incluye Lija'
     },
     {
       id: '6',
@@ -45,7 +53,9 @@ export class ProductService {
       image2: '../assets/images/Producto_Skateboard/Darkstar_RyanDeCenzo_Vuelta.png',
       name: 'Darkstar RyanCenzo',
       price: 1200,
-      description: 'Inserte Descripción'
+      description: 'Las mejores tablas, al mejor precio. Si tienes alguna inquietud no dude en contactarnos.',
+      medida: 'Medida: 8,25',
+      extras: 'Incluye Lija'
     },
     {
       id: '7',
@@ -53,7 +63,9 @@ export class ProductService {
       image2: '../assets/images/Producto_Skateboard/Plan_B_Duffy_Vuelta.png',
       name: 'Plan B Duffy',
       price: 1200,
-      description: 'Inserte Descripción'
+      description: 'Las mejores tablas, al mejor precio. Si tienes alguna inquietud no dude en contactarnos.',
+      medida: '8,25',
+      extras: 'Incluye Lija'
     },
     {
       id: '8',
@@ -61,7 +73,9 @@ export class ProductService {
       image2: '../assets/images/Producto_Skateboard/Plan_B_FelipeGustavo_Vuelta.png',
       name: 'Plan B FelipeGustavo',
       price: 1200,
-      description: 'Inserte Descripción'
+      description: 'Las mejores tablas, al mejor precio. Si tienes alguna inquietud no dude en contactarnos.',
+      medida: '8,25',
+      extras: 'Incluye Lija'
     },
     {
       id: '9',
@@ -69,15 +83,19 @@ export class ProductService {
       image2: '../assets/images/Producto_Skateboard/Santa_Cruz_The Worst_Vuelta.png',
       name: 'Santa Cruz The Worst',
       price: 1200,
-      description: 'Inserte Descripción'
+      description: 'Las mejores tablas, al mejor precio. Si tienes alguna inquietud no dude en contactarnos.',
+      medida: '8,25',
+      extras: 'Incluye Lija'
     },
     {
       id: '10',
       image1: '../assets/images/Producto_Skateboard/Grizzly_AdventureTime_Frente.png',
       image2: '../assets/images/Producto_Skateboard/Grizzly_AdventureTime_Vuelta.png',
       name: 'Grizzly AdventureTime',
-      price: 1500,
-      description: 'Inserte Descripción'
+      price: 1300,
+      description: 'Las mejores tablas, al mejor precio. Si tienes alguna inquietud no dude en contactarnos.',
+      medida: 'Medida: 8,37',
+      extras: 'Incluye Lija'
     },
     {
       id: '11',
@@ -85,7 +103,9 @@ export class ProductService {
       image2: '../assets/images/Producto_Skateboard/Santa_Cruz_NinjaTurtles_Vuelta.png',
       name: 'Santa Cruz NinjaTurtles',
       price: 1500,
-      description: 'Inserte Descripción'
+      description: 'Las mejores tablas, al mejor precio. Si tienes alguna inquietud no dude en contactarnos.',
+      medida: 'Medida: 8,0',
+      extras: 'Incluye Lija'
     },
    ];
   trucks: Product[] = [
@@ -94,9 +114,21 @@ export class ProductService {
     image1: '../assets/images/Producto_Skateboard/Truck_Thunder_Shane_Oneill.png',
     image2: '',
     name: 'Truck Thunder Shane O`neill',
-    price: 850,
-    description: 'Inserte Descripción'
-    }
+    price: 1500,
+    description: 'Trucks de la mas alta calidad con diseños increibles.',
+    medida: 'Medida: 149 Premium Hollow Lights White',
+    extras: 'ENVIO GRATIS'
+    },
+    {
+      id: '17',
+      image1: '../assets/images/Producto_Skateboard/Truck_Independent_Leo_Romero_frente.png',
+      image2: '',
+      name: 'Truck Independent Leo Romero',
+      price: 1500,
+      description: 'Trucks de la mas alta calidad con diseños increibles.',
+      medida: 'Medida: 159 Stage 11 Holow',
+      extras: 'ENVIO GRATIS'
+      }
   ];
   ruedas: Product[] = [
     {
@@ -105,7 +137,9 @@ export class ProductService {
       image2: '',
       name: 'SpitFire Old English 53mm',
       price: 850,
-      description: 'Inserte Descripción'
+      description: 'Ruedas con excelente calidad y diseño para el skating mas extremo',
+      medida: 'Medida: 53mm',
+      extras: 'ENVIO GRATIS'
     },
     {
       id: '14',
@@ -113,7 +147,19 @@ export class ProductService {
       image2: '',
       name: 'Ricta Sparx 52mm',
       price: 850,
-      description: 'Inserte Descripción'
+      description: 'Ruedas con excelente calidad y diseño para el skating mas extremo',
+      medida: 'Medida: 52mm',
+      extras: 'ENVIO GRATIS'
+    },
+    {
+      id: '15',
+      image1: '../assets/images/Producto_Skateboard/pro_classic_58mm.jpg',
+      image2: '',
+      name: 'Spit Fire Lance Mountain',
+      price: 950,
+      description: 'Ruedas con excelente calidad y diseño para el skating mas extremo',
+      medida: '58mm F4 99 Pro Classic',
+      extras: 'ENVIO GRATIS'
     }
   ];
   tornillos: Product[] = [];

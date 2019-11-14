@@ -1,20 +1,20 @@
 <app-label [routeName]="routeName"></app-label>
 
 <div class="contact-wrapper">
-  <form action="/" method="post">
+  <form [formGroup]="signupForm" (ngSubmit)="enviar(signupForm.value)">
     <div class="p-3 p-lg-5 border">
       <div class="form-group row">
         <div class="col-md-6">
           <label for="c_fname" class="text-black"
             >Nombre(s)<span class="text-danger">*</span></label
           >
-          <input type="text" class="form-control" id="c_fname" name="c_fname" />
+          <input type="text" class="form-control" id="c_fname" formControlName="nombre" />
         </div>
         <div class="col-md-6">
           <label for="c_lname" class="text-black"
             >Apellidos<span class="text-danger">*</span></label
           >
-          <input type="text" class="form-control" id="c_lname" name="c_lname" />
+          <input type="text" class="form-control" id="c_lname" formControlName="apellido" />
         </div>
       </div>
       <div class="form-group row">
@@ -26,7 +26,7 @@
             type="email"
             class="form-control"
             id="c_email"
-            name="c_email"
+            formControlName="email"
             placeholder=""
           />
         </div>
@@ -38,7 +38,7 @@
             type="tel"
             class="form-control"
             id="c_subject"
-            name="c_subject"
+            formControlName="telefono"
           />
         </div>
       </div>
@@ -47,7 +47,7 @@
         <div class="col-md-12">
           <label for="c_message" class="text-black">Mensaje </label>
           <textarea
-            name="c_message"
+            formControlName="mensaje"
             id="c_message"
             cols="30"
             rows="4"
@@ -58,11 +58,13 @@
       <div class="form-group row">
         <div class="col-lg-12">
           <input
+          [disabled]="signupForm.invalid"
             type="submit"
             class="btn btn-primary btn-lg btn-block"
             value="Enviar Mensaje"
           />
         </div>
+        <p>{{formConfirmation}}</p>
       </div>
     </div>
   </form>
@@ -75,8 +77,8 @@
         icono</span>
     </div>
     <div class="social-icon">
-        <a class="fab fa-facebook" routerLink="https://www.facebook.com/Ruberik-Skateboarding-107009350693949/" target="_blank"></a>
-        <a class="fab fa-whatsapp" routerLink="https://web.whatsapp.com/send?phone=524423867262&amp;text=Hola%20vengo%20de%20la%20tienda%20de%20skateboards,%20me%20interesa%20ponerme%20en%20contacto%20con%20ustedes." target="_blank" ></a>
+        <a class="fab fa-facebook" href="https://www.facebook.com/Ruberik-Skateboarding-107009350693949/" target="_blank"></a>
+        <a id=whatsapp class="fab fa-whatsapp" href="https://web.whatsapp.com/send?phone=524423867262&amp;text=Hola%20vengo%20de%20la%20tienda%20de%20skateboards,%20me%20interesa%20ponerme%20en%20contacto%20con%20ustedes." target="_blank" ></a>
     </div>
   </div>
 </div>

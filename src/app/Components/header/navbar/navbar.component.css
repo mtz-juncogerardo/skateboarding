@@ -16,3 +16,12 @@ nav{
   cursor: pointer;
 }
 
+@media screen and (max-width: 550px){
+  .nav-list{
+    background-color: #f6f6f6;
+    position: relative;
+    width: 100vw;
+    z-index: 10;
+  }
+}
+
