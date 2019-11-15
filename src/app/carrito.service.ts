@@ -20,8 +20,8 @@ export class CarritoService {
     this.shopCart.next(this.products);
   }
 
-  removeProduct(idx){
-    this.products.splice(idx, 1);
+  removeProduct(idx, itemsNumber){
+    this.products.splice(idx, itemsNumber);
     console.log(idx);
     this.shopCart.next(this.products);
   }

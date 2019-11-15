@@ -75,7 +75,7 @@ export class RegisterComponent implements OnInit {
       this.infoText.push('**La contraseña debe ser de 8 caracteres mínimo');
     }
 
-    if(this.authError) {
+    if (this.authError) {
       this.infoText.push(this.authError);
     }
   }

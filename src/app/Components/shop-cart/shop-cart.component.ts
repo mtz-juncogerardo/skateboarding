@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CarritoService } from '../../carrito.service';
-import { Observable } from 'rxjs';
 import { Product } from '../../product.model';
-import { async } from 'q';
+import { AuthService } from '../../auth.service';
+
 
 declare var paypal;
 @Component({
@@ -17,14 +17,22 @@ export class ShopCartComponent implements OnInit {
   shopCart: Product[];
   total: number;
   paidFor = false;
+  user: firebase.User;
+  orderedProducts = {};
 
-  constructor(private carritoService: CarritoService) {
+  constructor(private carritoService: CarritoService, private authService: AuthService) {
 
     this.carritoService.shopCart$.subscribe(data => {
       this.shopCart = data;
 
       this.getTotal();
     });
+
+    this.authService.getUserState()
+    .subscribe(user => {
+      this.user = user;
+    });
+
   }
 
   getTotal() {
@@ -37,26 +45,29 @@ export class ShopCartComponent implements OnInit {
   }
 
   removeProduct(idx){
-    this.carritoService.removeProduct(idx);
+    this.carritoService.removeProduct(idx, 1);
     this.getTotal();
   }
 
   paypalOrder() {
     const order = [];
-    this.shopCart.forEach(item =>{
+    this.shopCart.forEach(item => {
 
       order.push(
-        {
-          description: item.description,
-          amount: {
-            currency_code: 'MXN',
-            value: item.price,
-          }
-        }
+
         );
     });
 
     return order;
+  }
+
+  getOrderItems() {
+    let counter = 1;
+
+    this.shopCart.forEach(item => {
+      this.orderedProducts[counter] = item.name;
+      counter++;
+    });
   }
 
 
@@ -65,13 +76,23 @@ export class ShopCartComponent implements OnInit {
     paypal.Buttons({
       createOrder: (data, actions) => {
         return actions.order.create({
-          purchase_units: this.paypalOrder()
+          purchase_units: [{
+
+              description: 'Compra en DChiripa Skate',
+              amount: {
+                currency_code: 'MXN',
+                value: this.total,
+              }
+          }]
         });
       },
-      onApprove: async(data, actions) => {
+      onApprove: async (data, actions) => {
         const order = await actions.order.capture();
         this.paidFor = true;
-        console.log(order);
+        this.getOrderItems();
+        this.authService.insertOrderInfo(this.user.uid, this.orderedProducts)
+        .then( res => this.carritoService.removeProduct(0, this.shopCart.length));
+
       },
       onError: err => console.log(err)
 

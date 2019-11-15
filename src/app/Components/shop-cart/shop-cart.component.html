@@ -1,6 +1,6 @@
 <app-label [routeName]='routeName'></app-label>
 
-<div *ngIf="!paidFor">
+<div *ngIf="!paidFor && user">
 
   <div class="card">
     <table class="table table-hover shopping-cart-wrap">
@@ -39,15 +39,14 @@
       </tbody>
     </table>
   </div>
+  <div class=total>
+    <h1 [style.textAlign]="'center'">Total de Compra: <span [style.color]="'blue'">{{total | currency}} MXN</span></h1>
+  </div>
 </div>
-
-<div class=total>
-  <h1 [style.textAlign]="'center'">Total de Compra: <span [style.color]="'blue'">{{total | currency}} MXN</span></h1>
-</div>
-<div class="paypal" #paypal></div>
-
-
 
 <div *ngIf="paidFor">
-  <h1>TU COMPRA FUE AUTORIZADA</h1>
+  <h1 [style.textAlign]="'center'">Muchas Gracias {{user.displayName}}</h1>
+  <h1 [style.textAlign]="'center'">TU COMPRA FUE AUTORIZADA</h1>
 </div>
+
+<div class="paypal" #paypal></div>

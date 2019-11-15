@@ -5,6 +5,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { User } from './user.model';
 
 import { BehaviorSubject } from 'rxjs';
+import { Product } from './product.model';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -33,6 +34,10 @@ export class AuthService {
 
   insertUserData(userCredential: firebase.auth.UserCredential) {
     return this.afs.doc(`Users/${userCredential.user.uid}`).set(this.newUser);
+  }
+
+  insertOrderInfo(userID: string, product: any) {
+    return this.afs.doc(`Pedidos/${userID}`).set(product);
   }
 
   async login(password: string, email: string) {
