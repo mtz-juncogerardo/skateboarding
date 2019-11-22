@@ -18,7 +18,7 @@ export class ShopCartComponent implements OnInit {
   total: number;
   paidFor = false;
   user: firebase.User;
-  orderedProducts = {};
+  orderedProducts = [];
 
   constructor(private carritoService: CarritoService, private authService: AuthService) {
 
@@ -62,8 +62,7 @@ export class ShopCartComponent implements OnInit {
   }
 
   getOrderItems() {
-    let counter = 1;
-
+    let counter = 0;
     this.shopCart.forEach(item => {
       this.orderedProducts[counter] = item.name;
       counter++;
@@ -90,7 +89,7 @@ export class ShopCartComponent implements OnInit {
         const order = await actions.order.capture();
         this.paidFor = true;
         this.getOrderItems();
-        this.authService.insertOrderInfo(this.user.uid, this.orderedProducts)
+        this.authService.insertOrderInfo(this.user.uid, this.orderedProducts, this.user.email)
         .then( res => this.carritoService.removeProduct(0, this.shopCart.length));
 
       },

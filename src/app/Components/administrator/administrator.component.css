@@ -1,3 +1,65 @@
 .container{
   padding-top: 10em;
+  padding-left: 0 !important;
+}
+
+.usuarios-container{
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.pedidos-container{
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.bienvenido{
+  width: 100vw;
+  background-color: gray;
+  color: white;
+}
+
+.seccion{
+  width: 100vw;
+  background-color: cornflowerblue;
+}
+
+.mail{
+  font-weight: bold;
+  list-style: none;
+  color: blue;
+}
+
+.border{
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+}
+
+.add{
+  height: 5em;
+  width: 5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.categoria{
+  color: red;
+}
+
+.articulo-cat{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.btn{
+  margin-bottom: 20px !important;
 }

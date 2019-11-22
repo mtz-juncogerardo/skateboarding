@@ -8,11 +8,14 @@ import { ProductService } from '../../../product.service';
 })
 export class FeaturedComponent implements OnInit {
 
-  products: any;
+  featured: any;
 
   constructor(private productService: ProductService) {
 
-    this.products = this.productService.getTablas().filter(item => item.id === '1' || item.id === '2' || item.id === '3');
+    this.productService.getFeatured().subscribe(data => {
+      this.featured = data;
+    });
+
    }
 
   ngOnInit() {

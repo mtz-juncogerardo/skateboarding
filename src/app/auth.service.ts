@@ -36,8 +36,11 @@ export class AuthService {
     return this.afs.doc(`Users/${userCredential.user.uid}`).set(this.newUser);
   }
 
-  insertOrderInfo(userID: string, product: any) {
-    return this.afs.doc(`Pedidos/${userID}`).set(product);
+  insertOrderInfo(userID: string, product: any, correo: string) {
+    return this.afs.doc(`Pedidos/${userID}`).set({
+      email: correo,
+      products: product
+    });
   }
 
   async login(password: string, email: string) {

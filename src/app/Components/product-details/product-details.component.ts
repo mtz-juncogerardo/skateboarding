@@ -11,6 +11,14 @@ import { AuthService } from '../../auth.service';
 })
 export class ProductDetailsComponent implements OnInit {
 
+  tablas: any = [];
+  ruedas: any = [];
+  trucks: any = [];
+  elevadores: any = [];
+  tornillos: any = [];
+  gorras: any = [];
+  tennis: any = [];
+
   productDesc = '';
   productName = '';
   productPrice = 0;
@@ -19,14 +27,21 @@ export class ProductDetailsComponent implements OnInit {
   productSize = '';
   productExtra = '';
   id = '';
-  trucks = false;
+  isTrucks = false;
+  isTablas = false;
+  isRuedas = false;
+  isTornillos = false;
+  isElevadores = false;
+  isTennis = false;
+  isGorras = false;
   user: firebase.User;
 
   constructor(private carritoService: CarritoService,
-              private route: ActivatedRoute,
-              private productService: ProductService,
-              private authService: AuthService
+    private route: ActivatedRoute,
+    private productService: ProductService,
+    private authService: AuthService
   ) { }
+
 
   pushToCart() {
     this.carritoService.addToCart({
@@ -43,64 +58,145 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.authService.getUserState()
-  .subscribe(user => {
-    this.user = user;
-  });
+      .subscribe(user => {
+        this.user = user;
+      });
 
     this.route.params.subscribe((params: Params) => {
+      this.isTablas = false;
+      this.isRuedas = false;
+      this.isTrucks = false;
+      this.isElevadores = false;
+      this.isTornillos = false;
+      this.isGorras = false;
+      this.isTennis = false;
       this.id = params.id;
 
-      if (this.productService.getProductTabla(this.id)) {
-        const exactProduct = this.productService.getProductTabla(this.id);
-        this.trucks = false;
-        this.productDesc = exactProduct.description;
-        this.productName = exactProduct.name;
-        this.productImage1 = exactProduct.image1;
-        this.productImage2 = exactProduct.image2;
-        this.productPrice = exactProduct.price;
-        this.productExtra = exactProduct.extras;
-        this.productSize = exactProduct.medida;
-      } else if (this.productService.getProductRueda(this.id)) {
-        const exactProduct = this.productService.getProductRueda(this.id);
-        this.trucks = false;
-        this.productDesc = exactProduct.description;
-        this.productName = exactProduct.name;
-        this.productImage1 = exactProduct.image1;
-        this.productImage2 = exactProduct.image2;
-        this.productPrice = exactProduct.price;
-        this.productExtra = exactProduct.extras;
-        this.productSize = exactProduct.medida;
-      } else if (this.productService.getProductTornillo(this.id)) {
-        const exactProduct = this.productService.getProductTornillo(this.id);
-        this.trucks = false;
-        this.productDesc = exactProduct.description;
-        this.productName = exactProduct.name;
-        this.productImage1 = exactProduct.image1;
-        this.productImage2 = exactProduct.image2;
-        this.productPrice = exactProduct.price;
-        this.productExtra = exactProduct.extras;
-        this.productSize = exactProduct.medida;
-      } else if (this.productService.getProductElevador(this.id)) {
-        const exactProduct = this.productService.getProductElevador(this.id);
-        this.trucks = false;
-        this.productDesc = exactProduct.description;
-        this.productName = exactProduct.name;
-        this.productImage1 = exactProduct.image1;
-        this.productImage2 = exactProduct.image2;
-        this.productPrice = exactProduct.price;
-        this.productExtra = exactProduct.extras;
-        this.productSize = exactProduct.medida;
-      } else if (this.productService.getProductTruck(this.id)) {
-        const exactProduct = this.productService.getProductTruck(this.id);
-        this.trucks = true;
-        this.productDesc = exactProduct.description;
-        this.productName = exactProduct.name;
-        this.productImage1 = exactProduct.image1;
-        this.productImage2 = exactProduct.image2;
-        this.productPrice = exactProduct.price;
-        this.productExtra = exactProduct.extras;
-        this.productSize = exactProduct.medida;
-      }
+      this.productService.getTablas().subscribe(data => {
+        this.tablas = data;
+        this.tablas.forEach(item => {
+
+          if (this.id === item.id) {
+            this.isTablas = true;
+            this.productDesc = item.description;
+            this.productName = item.name;
+            this.productImage1 = item.image1;
+            this.productImage2 = item.image2;
+            this.productPrice = item.price;
+            this.productExtra = item.extras;
+            this.productSize = item.medida;
+          }
+
+        });
+      });
+
+      this.productService.getRuedas().subscribe(data => {
+        this.ruedas = data;
+        this.ruedas.forEach(item => {
+
+          if (this.id === item.id) {
+            this.isRuedas = true;
+            this.productDesc = item.description;
+            this.productName = item.name;
+            this.productImage1 = item.image1;
+            this.productImage2 = item.image2;
+            this.productPrice = item.price;
+            this.productExtra = item.extras;
+            this.productSize = item.medida;
+
+          }
+        });
+      });
+
+      this.productService.getTornillos().subscribe(data => {
+        this.tornillos = data;
+        this.tornillos.forEach(item => {
+
+          if (this.id === item.id) {
+            this.isTornillos = true;
+            this.productDesc = item.description;
+            this.productName = item.name;
+            this.productImage1 = item.image1;
+            this.productImage2 = item.image2;
+            this.productPrice = item.price;
+            this.productExtra = item.extras;
+            this.productSize = item.medida;
+
+          }
+        });
+      });
+
+      this.productService.getElevadores().subscribe(data => {
+        this.elevadores = data;
+        this.elevadores.forEach(item => {
+
+          if (this.id === item.id) {
+            this.isElevadores = true;
+            this.productDesc = item.description;
+            this.productName = item.name;
+            this.productImage1 = item.image1;
+            this.productImage2 = item.image2;
+            this.productPrice = item.price;
+            this.productExtra = item.extras;
+            this.productSize = item.medida;
+
+          }
+        });
+      });
+
+      this.productService.getTrucks().subscribe(data => {
+        this.trucks = data;
+        this.trucks.forEach(item => {
+
+          if (this.id === item.id) {
+            this.isTrucks = true;
+            this.productDesc = item.description;
+            this.productName = item.name;
+            this.productImage1 = item.image1;
+            this.productImage2 = item.image2;
+            this.productPrice = item.price;
+            this.productExtra = item.extras;
+            this.productSize = item.medida;
+
+          }
+        });
+      });
+
+      this.productService.getGorras().subscribe(data => {
+        this.gorras = data;
+        this.gorras.forEach(item => {
+
+          if (this.id === item.id) {
+            this.isGorras = true;
+            this.productDesc = item.description;
+            this.productName = item.name;
+            this.productImage1 = item.image1;
+            this.productImage2 = item.image2;
+            this.productPrice = item.price;
+            this.productExtra = item.extras;
+            this.productSize = item.medida;
+
+          }
+        });
+      });
+
+      this.productService.getTennis().subscribe(data => {
+        this.tennis = data;
+        this.tennis.forEach(item => {
+
+          if (this.id === item.id) {
+            this.isTennis = true;
+            this.productDesc = item.description;
+            this.productName = item.name;
+            this.productImage1 = item.image1;
+            this.productImage2 = item.image2;
+            this.productPrice = item.price;
+            this.productExtra = item.extras;
+            this.productSize = item.medida;
+          }
+
+        });
+      });
     });
   }
 

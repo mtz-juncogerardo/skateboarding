@@ -1,7 +1,136 @@
 <div class='container'>
-  <h2 *ngIf="userId == 'pn3CbyqvAZSnbuXBuZ0Z4UCDIUM2' || userId == 'PCQE3fNIA8hY80f1fHo70gF5NxC2'; else notAdmin">
-    Bienvenido {{user.displayName}}
-  </h2>
+  <div *ngIf="userId == 'pn3CbyqvAZSnbuXBuZ0Z4UCDIUM2' || userId == 'PCQE3fNIA8hY80f1fHo70gF5NxC2'; else notAdmin">
+      <a class="btn btn-lg btn-success" routerLink="/add/product">Añadir Producto</a>
+    <h2 class="bienvenido">Bienvenido {{user.displayName}}</h2>
+    <section class="pedidos">
+      <div class="pedidos-container">
+        <ol class="border" *ngFor="let item of pedidos; let x = index">
+          <h3>Pedido #{{x+1}}</h3>
+          <li class="mail">{{item.email}}</li>
+          <li *ngFor="let p of item.products">{{p}}</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="usuarios">
+      <h3 class="seccion">Base de Datos de Usuarios</h3>
+      <div class="usuarios-container">
+        <ul class="border" *ngFor="let item of userDatabase">
+          <li class="mail">{{item.email}}</li>
+          <li>{{item.name}}</li>
+          <li>{{item.direction}}</li>
+          <li>{{item.city}}</li>
+          <li>{{item.municipio}}</li>
+          <li>{{item.cp}}</li>
+          <li>{{item.phone}}</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ARTICULOS Y PRODUCTOS -->
+
+    <section class="articulos">
+      <h3 class="seccion">Articulos y Productos</h3>
+      <div class="articulo-cat">
+        <h2 class="categoria">Tablas</h2>
+        <ul *ngFor="let item of tablas" class="border">
+          <li class="mail">{{item.id}}</li>
+          <li>{{item.name}}</li>
+          <li>{{item.image1}}</li>
+          <li>{{item.image2}}</li>
+          <li>{{item.description}}</li>
+          <li>{{item.medida}}</li>
+          <li>{{item.extra}}</li>
+          <li>{{item.price}}</li>
+        </ul>
+      </div>
+
+      <div class="articulo-cat">
+        <h2 class="categoria">Ruedas</h2>
+        <ul *ngFor="let item of ruedas" class="border">
+          <li class="mail">{{item.id}}</li>
+          <li>{{item.name}}</li>
+          <li>{{item.image1}}</li>
+          <li>{{item.image2}}</li>
+          <li>{{item.description}}</li>
+          <li>{{item.medida}}</li>
+          <li>{{item.extra}}</li>
+          <li>{{item.price}}</li>
+        </ul>
+      </div>
+
+      <div class="articulo-cat">
+        <h2 class="categoria">Trucks</h2>
+        <ul *ngFor="let item of trucks" class="border">
+          <li class="mail">{{item.id}}</li>
+          <li>{{item.name}}</li>
+          <li>{{item.image1}}</li>
+          <li>{{item.image2}}</li>
+          <li>{{item.description}}</li>
+          <li>{{item.medida}}</li>
+          <li>{{item.extra}}</li>
+          <li>{{item.price}}</li>
+        </ul>
+      </div>
+
+      <div class="articulo-cat">
+        <h2 class="categoria">Tornillos</h2>
+        <ul *ngFor="let item of tornillos" class="border">
+          <li class="mail">{{item.id}}</li>
+          <li>{{item.name}}</li>
+          <li>{{item.image1}}</li>
+          <li>{{item.image2}}</li>
+          <li>{{item.description}}</li>
+          <li>{{item.medida}}</li>
+          <li>{{item.extra}}</li>
+          <li>{{item.price}}</li>
+        </ul>
+      </div>
+
+      <div class="articulo-cat">
+        <h2 class="categoria">Gorras</h2>
+        <ul *ngFor="let item of gorras" class="border">
+          <li class="mail">{{item.id}}</li>
+          <li>{{item.name}}</li>
+          <li>{{item.image1}}</li>
+          <li>{{item.image2}}</li>
+          <li>{{item.description}}</li>
+          <li>{{item.medida}}</li>
+          <li>{{item.extra}}</li>
+          <li>{{item.price}}</li>
+        </ul>
+      </div>
+
+      <div class="articulo-cat">
+        <h2 class="categoria">Elevadores</h2>
+        <ul *ngFor="let item of elevadores" class="border">
+          <li class="mail">{{item.id}}</li>
+          <li>{{item.name}}</li>
+          <li>{{item.image1}}</li>
+          <li>{{item.image2}}</li>
+          <li>{{item.description}}</li>
+          <li>{{item.medida}}</li>
+          <li>{{item.extra}}</li>
+          <li>{{item.price}}</li>
+        </ul>
+      </div>
+
+      <div class="articulo-cat">
+          <h2 class="categoria">Tennis</h2>
+          <ul *ngFor="let item of tennis" class="border">
+            <li class="mail">{{item.id}}</li>
+            <li>{{item.name}}</li>
+            <li>{{item.image1}}</li>
+            <li>{{item.image2}}</li>
+            <li>{{item.description}}</li>
+            <li>{{item.medida}}</li>
+            <li>{{item.extra}}</li>
+            <li>{{item.price}}</li>
+          </ul>
+        </div>
+    </section>
+  </div>
+
 
   <ng-template #notAdmin>
     <h2>

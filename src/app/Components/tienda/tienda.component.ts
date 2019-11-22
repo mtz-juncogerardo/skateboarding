@@ -30,50 +30,73 @@ export class TiendaComponent implements OnInit {
         case 'tablas':
           this.trucks = false;
           this.productRender = [];
-          this.productService.getTablas().forEach(item => {
-            this.productRender.push(item);
+          this.productService.getTablas().subscribe(data => {
+            data.forEach(item => {
+              this.productRender.push(item);
+            });
           });
           break;
         case 'ruedas':
           this.trucks = false;
           this.productRender = [];
-          this.productService.getRuedas().forEach(item => {
-          this.productRender.push(item);
+          this.productService.getRuedas().subscribe(data => {
+            data.forEach(item => {
+              this.productRender.push(item);
+            });
           });
           break;
         case 'trucks':
           this.trucks = true;
           this.productRender = [];
-          this.productService.getTrucks().forEach(item => {
-          this.productRender.push(item);
+          this.productService.getTrucks().subscribe(data => {
+            data.forEach(item => {
+              this.productRender.push(item);
+            });
           });
           break;
         case 'tornillos':
           this.trucks = false;
           this.productRender = [];
-          this.productService.getTornillos().forEach(item => {
-            this.productRender.push(item);
+          this.productService.getTornillos().subscribe(data => {
+            data.forEach(item => {
+              this.productRender.push(item);
+            });
           });
           break;
         case 'elevadores':
           this.trucks = false;
           this.productRender = [];
-          this.productService.getElevadores().forEach(item => {
-            this.productRender.push(item);
+          this.productService.getElevadores().subscribe(data => {
+            data.forEach(item => {
+              this.productRender.push(item);
+            });
           });
           break;
           case 'tennis':
           this.trucks = false;
           this.productRender = [];
-          this.productService.getTennis().forEach(item => {
-            this.productRender.push(item);
+          this.productService.getTennis().subscribe(data => {
+            data.forEach(item => {
+              this.productRender.push(item);
+            });
           });
           break;
           case 'gorras':
           this.trucks = false;
           this.productRender = [];
-          this.productService.getGorras().forEach(item => {
-            this.productRender.push(item);
+          this.productService.getGorras().subscribe(data => {
+            data.forEach(item => {
+              this.productRender.push(item);
+            });
+          });
+          break;
+          case 'ceras':
+          this.trucks = false;
+          this.productRender = [];
+          this.productService.getCeras().subscribe(data => {
+            data.forEach(item => {
+              this.productRender.push(item);
+            });
           });
           break;
       }
