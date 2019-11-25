@@ -1,0 +1,33 @@
+<div class="add-container" *ngIf="userId == 'pn3CbyqvAZSnbuXBuZ0Z4UCDIUM2' || userId == 'PCQE3fNIA8hY80f1fHo70gF5NxC2'; else notAdmin">
+  <div class="form">
+    <input [(ngModel)]="name" type="text" placeholder="Nombre">
+    <label>Categoria</label>
+    <select [(ngModel)]="cat" name="Categoria">
+      <option value="Ceras">Ceras</option>
+      <option value="Trucks">Trucks</option>
+      <option value="Tornillos">Tornillos</option>
+      <option value="Ruedas">Ruedas</option>
+      <option value="Elevadores">Elevadores</option>
+      <option value="Tablas">Tablas</option>
+      <option value="Tennis">Tennis</option>
+      <option value="Gorras">Gorras</option>
+      <option value="Gorras">Baleros</option>
+    </select>
+    <input [(ngModel)]="price" type="number" placeholder="Precio">
+    <input [(ngModel)]="description" type="text" placeholder="Descripción">
+    <label>Imagen #1</label>
+    <img class="preview" [src]="image1" alt="Aqui Aparece la Imagen una vez este cargada">
+    <input type="file" (change)="uploadImage1($event)">
+    <input [(ngModel)]="medida" type="text" placeholder="Medida">
+    <input [(ngModel)]="extras" type="text" placeholder="Extras">
+    <button (click)="addProduct()" class="btn btn-md ml-2 btn-success">Agregar</button>
+  </div>
+  <p>Espera a que termine de cargar la imagen antes de dar click a "Agregar"</p>
+</div>
+
+<ng-template #notAdmin>
+  <div class="container">
+    <h2>Acceso Denegado</h2>
+    <a routerLink="/home">Regresar</a>
+  </div>
+</ng-template>

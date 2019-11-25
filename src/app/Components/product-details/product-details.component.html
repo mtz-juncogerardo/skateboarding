@@ -5,8 +5,8 @@
       <div class="container product-wrapper">
 
         <div class="product-images">
-          <img [style.height]="isTrucks ? '8em' : '33em'" [src]="productImage1" alt="frente">
-          <img [src]="productImage2" *ngIf="productImage2" alt="vuelta">
+          <img [style.height]="isTrucks || isGorras ? '10em' : '33em'" [src]="productImage1" alt="frente">
+          <img [style.height]="isTrucks || isGorras ? '10em' : '33em'" *ngIf="productImage2" [src]="productImage2" alt="vuelta">
         </div>
 
         <div class="col-md-7">

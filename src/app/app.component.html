@@ -1,6 +1,11 @@
-<app-header></app-header>
+<div class="my-overlay" *ngIf="showOverlay ; else showPage">
+  <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+</div>
 
-    <router-outlet></router-outlet>
+<ng-template #showPage>
 
-<app-footer></app-footer>
+  <app-header></app-header>
+  <router-outlet></router-outlet>
+  <app-footer></app-footer>
 
+</ng-template>

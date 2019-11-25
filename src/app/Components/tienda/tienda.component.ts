@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { ProductService } from '../../product.service';
 
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-tienda',
@@ -72,7 +75,7 @@ export class TiendaComponent implements OnInit {
             });
           });
           break;
-          case 'tennis':
+        case 'tennis':
           this.trucks = false;
           this.productRender = [];
           this.productService.getTennis().subscribe(data => {
@@ -81,7 +84,7 @@ export class TiendaComponent implements OnInit {
             });
           });
           break;
-          case 'gorras':
+        case 'gorras':
           this.trucks = false;
           this.productRender = [];
           this.productService.getGorras().subscribe(data => {
@@ -90,10 +93,19 @@ export class TiendaComponent implements OnInit {
             });
           });
           break;
-          case 'ceras':
+        case 'ceras':
           this.trucks = false;
           this.productRender = [];
           this.productService.getCeras().subscribe(data => {
+            data.forEach(item => {
+              this.productRender.push(item);
+            });
+          });
+          break;
+          case 'baleros':
+          this.trucks = false;
+          this.productRender = [];
+          this.productService.getBaleros().subscribe(data => {
             data.forEach(item => {
               this.productRender.push(item);
             });

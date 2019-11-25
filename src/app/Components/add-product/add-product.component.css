@@ -1,0 +1,30 @@
+.add-container{
+  margin-top: 10em;
+  padding-left: 5em;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 90vw;
+  height: 70vh;
+}
+
+input{
+  width: 100%;
+}
+
+.preview{
+  max-height: 10em;
+}
+
+select{
+  width: 100%;
+}
+
+label{
+  font-weight: bold;
+  font-size: 1em;
+}

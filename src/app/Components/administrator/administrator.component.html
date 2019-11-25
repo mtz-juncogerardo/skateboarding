@@ -1,6 +1,6 @@
 <div class='container'>
   <div *ngIf="userId == 'pn3CbyqvAZSnbuXBuZ0Z4UCDIUM2' || userId == 'PCQE3fNIA8hY80f1fHo70gF5NxC2'; else notAdmin">
-      <a class="btn btn-lg btn-success" routerLink="/add/product">Añadir Producto</a>
+    <a class="btn btn-lg btn-success" routerLink="/add/product">Añadir Producto</a>
     <h2 class="bienvenido">Bienvenido {{user.displayName}}</h2>
     <section class="pedidos">
       <div class="pedidos-container">
@@ -8,6 +8,17 @@
           <h3>Pedido #{{x+1}}</h3>
           <li class="mail">{{item.email}}</li>
           <li *ngFor="let p of item.products">{{p}}</li>
+          <div *ngIf="!wantsDelete ; else confirmation">
+              <button class="btn btn-sm btn-danger" (click)="askConfirm()">Eliminar</button>
+            </div>
+            <ng-template #confirmation>
+              <p class="confirmation">¿Estas Seguro?</p>
+              <div class="confirmation-btn">
+                  <button class="btn btn-sm btn-danger" (click)="delete(item.id)">Si</button>
+                  <button class="btn btn-sm btn-danger" (click)="askConfirm()">No</button>
+              </div>
+
+            </ng-template>
         </ol>
       </div>
     </section>
@@ -42,6 +53,17 @@
           <li>{{item.medida}}</li>
           <li>{{item.extra}}</li>
           <li>{{item.price}}</li>
+          <div *ngIf="!wantsDelete ; else confirmation">
+            <button class="btn btn-sm btn-warning" (click)="askConfirm()">Eliminar</button>
+          </div>
+          <ng-template #confirmation>
+            <p class="confirmation">¿Estas Seguro?</p>
+            <div class="confirmation-btn">
+              <button class="btn btn-sm btn-warning" (click)="delete(item.id, 'Tablas')">Si</button>
+              <button class="btn btn-sm btn-warning" (click)="askConfirm()">No</button>
+            </div>
+
+          </ng-template>
         </ul>
       </div>
 
@@ -56,6 +78,17 @@
           <li>{{item.medida}}</li>
           <li>{{item.extra}}</li>
           <li>{{item.price}}</li>
+          <div *ngIf="!wantsDelete ; else confirmation">
+              <button class="btn btn-sm btn-warning" (click)="askConfirm()">Eliminar</button>
+            </div>
+            <ng-template #confirmation>
+              <p class="confirmation">¿Estas Seguro?</p>
+              <div class="confirmation-btn">
+                  <button class="btn btn-sm btn-warning" (click)="delete(item.id, 'Ruedas')">Si</button>
+                  <button class="btn btn-sm btn-warning" (click)="askConfirm()">No</button>
+              </div>
+
+            </ng-template>
         </ul>
       </div>
 
@@ -70,6 +103,17 @@
           <li>{{item.medida}}</li>
           <li>{{item.extra}}</li>
           <li>{{item.price}}</li>
+          <div *ngIf="!wantsDelete ; else confirmation">
+              <button class="btn btn-sm btn-warning" (click)="askConfirm()">Eliminar</button>
+            </div>
+            <ng-template #confirmation>
+              <p class="confirmation">¿Estas Seguro?</p>
+              <div class="confirmation-btn">
+                  <button class="btn btn-sm btn-warning" (click)="delete(item.id, 'Trucks')">Si</button>
+                  <button class="btn btn-sm btn-warning" (click)="askConfirm()">No</button>
+              </div>
+
+            </ng-template>
         </ul>
       </div>
 
@@ -84,6 +128,17 @@
           <li>{{item.medida}}</li>
           <li>{{item.extra}}</li>
           <li>{{item.price}}</li>
+          <div *ngIf="!wantsDelete ; else confirmation">
+              <button class="btn btn-sm btn-warning" (click)="askConfirm()">Eliminar</button>
+            </div>
+            <ng-template #confirmation>
+              <p class="confirmation">¿Estas Seguro?</p>
+              <div class="confirmation-btn">
+                  <button class="btn btn-sm btn-warning" (click)="delete(item.id, 'Tornillos')">Si</button>
+                  <button class="btn btn-sm btn-warning" (click)="askConfirm()">No</button>
+              </div>
+
+            </ng-template>
         </ul>
       </div>
 
@@ -98,6 +153,17 @@
           <li>{{item.medida}}</li>
           <li>{{item.extra}}</li>
           <li>{{item.price}}</li>
+          <div *ngIf="!wantsDelete ; else confirmation">
+              <button class="btn btn-sm btn-warning" (click)="askConfirm()">Eliminar</button>
+            </div>
+            <ng-template #confirmation>
+              <p class="confirmation">¿Estas Seguro?</p>
+              <div class="confirmation-btn">
+                  <button class="btn btn-sm btn-warning" (click)="delete(item.id, 'Gorras')">Si</button>
+                  <button class="btn btn-sm btn-warning" (click)="askConfirm()">No</button>
+              </div>
+
+            </ng-template>
         </ul>
       </div>
 
@@ -112,22 +178,94 @@
           <li>{{item.medida}}</li>
           <li>{{item.extra}}</li>
           <li>{{item.price}}</li>
+          <div *ngIf="!wantsDelete ; else confirmation">
+              <button class="btn btn-sm btn-warning" (click)="askConfirm()">Eliminar</button>
+            </div>
+            <ng-template #confirmation>
+              <p class="confirmation">¿Estas Seguro?</p>
+              <div class="confirmation-btn">
+                  <button class="btn btn-sm btn-warning" (click)="delete(item.id, 'Elevadores')">Si</button>
+                  <button class="btn btn-sm btn-warning" (click)="askConfirm()">No</button>
+              </div>
+
+            </ng-template>
         </ul>
       </div>
 
       <div class="articulo-cat">
-          <h2 class="categoria">Tennis</h2>
-          <ul *ngFor="let item of tennis" class="border">
-            <li class="mail">{{item.id}}</li>
-            <li>{{item.name}}</li>
-            <li>{{item.image1}}</li>
-            <li>{{item.image2}}</li>
-            <li>{{item.description}}</li>
-            <li>{{item.medida}}</li>
-            <li>{{item.extra}}</li>
-            <li>{{item.price}}</li>
-          </ul>
-        </div>
+        <h2 class="categoria">Tennis</h2>
+        <ul *ngFor="let item of tennis" class="border">
+          <li class="mail">{{item.id}}</li>
+          <li>{{item.name}}</li>
+          <li>{{item.image1}}</li>
+          <li>{{item.image2}}</li>
+          <li>{{item.description}}</li>
+          <li>{{item.medida}}</li>
+          <li>{{item.extra}}</li>
+          <li>{{item.price}}</li>
+          <div *ngIf="!wantsDelete ; else confirmation">
+              <button class="btn btn-sm btn-warning" (click)="askConfirm()">Eliminar</button>
+            </div>
+            <ng-template #confirmation>
+              <p class="confirmation">¿Estas Seguro?</p>
+              <div class="confirmation-btn">
+                  <button class="btn btn-sm btn-warning" (click)="delete(item.id, 'Tennis')">Si</button>
+                  <button class="btn btn-sm btn-warning" (click)="askConfirm()">No</button>
+              </div>
+
+            </ng-template>
+        </ul>
+      </div>
+
+      <div class="articulo-cat">
+        <h2 class="categoria">Ceras</h2>
+        <ul *ngFor="let item of ceras" class="border">
+          <li class="mail">{{item.id}}</li>
+          <li>{{item.name}}</li>
+          <li>{{item.image1}}</li>
+          <li>{{item.image2}}</li>
+          <li>{{item.description}}</li>
+          <li>{{item.medida}}</li>
+          <li>{{item.extra}}</li>
+          <li>{{item.price}}</li>
+          <div *ngIf="!wantsDelete ; else confirmation">
+              <button class="btn btn-sm btn-warning" (click)="askConfirm()">Eliminar</button>
+            </div>
+            <ng-template #confirmation>
+              <p class="confirmation">¿Estas Seguro?</p>
+              <div class="confirmation-btn">
+                  <button class="btn btn-sm btn-warning" (click)="delete(item.id, 'Ceras')">Si</button>
+                  <button class="btn btn-sm btn-warning" (click)="askConfirm()">No</button>
+              </div>
+
+            </ng-template>
+        </ul>
+      </div>
+
+      <div class="articulo-cat">
+        <h2 class="categoria">Baleros</h2>
+        <ul *ngFor="let item of baleros" class="border">
+          <li class="mail">{{item.id}}</li>
+          <li>{{item.name}}</li>
+          <li>{{item.image1}}</li>
+          <li>{{item.image2}}</li>
+          <li>{{item.description}}</li>
+          <li>{{item.medida}}</li>
+          <li>{{item.extra}}</li>
+          <li>{{item.price}}</li>
+          <div *ngIf="!wantsDelete ; else confirmation">
+              <button class="btn btn-sm btn-warning" (click)="askConfirm()">Eliminar</button>
+            </div>
+            <ng-template #confirmation>
+              <p class="confirmation">¿Estas Seguro?</p>
+              <div class="confirmation-btn">
+                  <button class="btn btn-sm btn-warning" (click)="delete(item.id, 'Baleros')">Si</button>
+                  <button class="btn btn-sm btn-warning" (click)="askConfirm()">No</button>
+              </div>
+
+            </ng-template>
+        </ul>
+      </div>
     </section>
   </div>
 

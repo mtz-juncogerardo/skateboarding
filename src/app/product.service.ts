@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Product } from './product.model';
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +16,7 @@ export class ProductService {
   tornillos: any = [];
   gorras: any = [];
   tennis: any = [];
+  baleros: any = [];
 
   constructor(private firestore: AngularFirestore) { }
 
@@ -22,35 +25,93 @@ export class ProductService {
   }
 
   getTablas() {
-    return this.firestore.collection('Tablas').valueChanges();
+    return this.firestore.collection('Tablas').snapshotChanges().pipe(map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as Product;
+        data.id = a.payload.doc.id;
+        return data;
+      });
+    }));
   }
 
   getTrucks() {
-    return this.firestore.collection('Trucks').valueChanges();
+    return this.firestore.collection('Trucks').snapshotChanges().pipe(map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as Product;
+        data.id = a.payload.doc.id;
+        return data;
+      });
+    }));
   }
 
   getRuedas() {
-    return this.firestore.collection('Ruedas').valueChanges();
+    return this.firestore.collection('Ruedas').snapshotChanges().pipe(map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as Product;
+        data.id = a.payload.doc.id;
+        return data;
+      });
+    }));
   }
 
   getTornillos() {
-    return this.firestore.collection('Tornillos').valueChanges();
+    return this.firestore.collection('Tornillos').snapshotChanges().pipe(map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as Product;
+        data.id = a.payload.doc.id;
+        return data;
+      });
+    }));
   }
 
   getElevadores() {
-    return this.firestore.collection('Elevadores').valueChanges();
+    return this.firestore.collection('Elevadores').snapshotChanges().pipe(map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as Product;
+        data.id = a.payload.doc.id;
+        return data;
+      });
+    }));
   }
 
   getTennis() {
-    return this.firestore.collection('Tennis').valueChanges();
+    return this.firestore.collection('Tennis').snapshotChanges().pipe(map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as Product;
+        data.id = a.payload.doc.id;
+        return data;
+      });
+    }));
   }
 
   getGorras() {
-    return this.firestore.collection('Gorras').valueChanges();
+    return this.firestore.collection('Gorras').snapshotChanges().pipe(map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as Product;
+        data.id = a.payload.doc.id;
+        return data;
+      });
+    }));
   }
 
   getCeras() {
-    return this.firestore.collection('Ceras').valueChanges();
+    return this.firestore.collection('Ceras').snapshotChanges().pipe(map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as Product;
+        data.id = a.payload.doc.id;
+        return data;
+      });
+    }));
+  }
+
+  getBaleros() {
+    return this.firestore.collection('Baleros').snapshotChanges().pipe(map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as Product;
+        data.id = a.payload.doc.id;
+        return data;
+      });
+    }));
   }
 
   // -----Get individual Products-----
@@ -59,6 +120,22 @@ export class ProductService {
     this.getTablas().subscribe(data => {
       this.tablas = data;
       this.tablas.forEach(item => {
+        if (id === item.id) {
+          return true;
+        }
+      });
+      return false;
+    });
+
+
+
+  }
+
+  getProductBaleros(id: any) {
+    console.log('ID:', id);
+    this.getBaleros().subscribe(data => {
+      this.baleros = data;
+      this.baleros.forEach(item => {
         if (id === item.id) {
           return true;
         }
