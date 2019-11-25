@@ -17,7 +17,7 @@ const routes: Routes = [
     path: '', redirectTo: '/home', pathMatch: 'full'
   },
   {
-    path: 'administrador/ruben', component: AdministratorComponent
+    path: 'administrador', component: AdministratorComponent
   },
   {
     path: 'add/product', component: AddProductComponent

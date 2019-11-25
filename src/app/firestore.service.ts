@@ -38,4 +38,8 @@ export class FirestoreService {
     return this.firestore.doc(`${category}/${id}`).delete();
   }
 
+  public createPedido(data: any, document: string){
+    return this.firestore.collection(document).add(data);
+  }
+
 }

@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CarritoService } from '../../carrito.service';
 import { Product } from '../../product.model';
 import { AuthService } from '../../auth.service';
+import { FirestoreService } from '../../firestore.service';
 
 
 declare var paypal;
@@ -20,7 +21,7 @@ export class ShopCartComponent implements OnInit {
   user: firebase.User;
   orderedProducts = [];
 
-  constructor(private carritoService: CarritoService, private authService: AuthService) {
+  constructor(private carritoService: CarritoService, private authService: AuthService, private firestore: FirestoreService) {
 
     this.carritoService.shopCart$.subscribe(data => {
       this.shopCart = data;
@@ -89,8 +90,15 @@ export class ShopCartComponent implements OnInit {
         const order = await actions.order.capture();
         this.paidFor = true;
         this.getOrderItems();
-        this.authService.insertOrderInfo(this.user.uid, this.orderedProducts, this.user.email)
-        .then( res => this.carritoService.removeProduct(0, this.shopCart.length));
+        this.firestore.createPedido({
+          PedidoPor: this.user.email,
+          Productos: this.orderedProducts
+        }, 'PedidosHistory')
+        .then(() => {
+          this.authService.insertOrderInfo(this.user.uid, this.orderedProducts, this.user.email)
+          .then( res => this.carritoService.removeProduct(0, this.shopCart.length));
+        });
+
 
       },
       onError: err => console.log(err)

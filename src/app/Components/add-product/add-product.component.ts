@@ -51,7 +51,7 @@ export class AddProductComponent implements OnInit {
       .then(res => {
         product.id = res.id;
         this.firestore.updateProduct(res.id, product, this.cat);
-        this.route.navigate(['/administrador/ruben']);
+        this.route.navigate(['/administrador']);
       });
   }
 
