@@ -266,6 +266,31 @@
             </ng-template>
         </ul>
       </div>
+
+      <div class="articulo-cat">
+        <h2 class="categoria">Playeras</h2>
+        <ul *ngFor="let item of playeras" class="border">
+          <li class="mail">{{item.id}}</li>
+          <li>{{item.name}}</li>
+          <li>{{item.image1}}</li>
+          <li>{{item.image2}}</li>
+          <li>{{item.description}}</li>
+          <li>{{item.medida}}</li>
+          <li>{{item.extra}}</li>
+          <li>{{item.price}}</li>
+          <div *ngIf="!wantsDelete ; else confirmation">
+              <button class="btn btn-sm btn-warning" (click)="askConfirm()">Eliminar</button>
+            </div>
+            <ng-template #confirmation>
+              <p class="confirmation">¿Estas Seguro?</p>
+              <div class="confirmation-btn">
+                  <button class="btn btn-sm btn-warning" (click)="delete(item.id, 'Playeras')">Si</button>
+                  <button class="btn btn-sm btn-warning" (click)="askConfirm()">No</button>
+              </div>
+
+            </ng-template>
+        </ul>
+      </div>
     </section>
   </div>
 

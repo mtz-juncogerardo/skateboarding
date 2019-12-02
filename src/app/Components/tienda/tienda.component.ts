@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { ProductService } from '../../product.service';
 
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 
 @Component({
@@ -18,7 +16,6 @@ export class TiendaComponent implements OnInit {
   trucks = false;
 
   constructor(
-    private router: Router,
     private productService: ProductService,
     private route: ActivatedRoute
   ) {
@@ -111,6 +108,14 @@ export class TiendaComponent implements OnInit {
             });
           });
           break;
+          case 'playeras':
+          this.trucks = false;
+          this.productRender = [];
+          this.productService.getPlayeras().subscribe(data => {
+            data.forEach(item =>{
+              this.productRender.push(item);
+            });
+          });
       }
     });
   }

@@ -24,6 +24,7 @@ export class AdministratorComponent implements OnInit {
   tennis: any;
   ceras: any;
   baleros: any;
+  playeras: any;
 
   wantsDelete = false;
 
@@ -41,7 +42,10 @@ export class AdministratorComponent implements OnInit {
 
   delete(id: string, category: string) {
     this.firestore.deleteProduct(id, category)
-    .then(() => console.log('Producto Eliminado'));
+    .then(() => {
+      console.log('Producto Eliminado');
+      this.wantsDelete = false;
+    });
   }
 
 
@@ -92,9 +96,15 @@ export class AdministratorComponent implements OnInit {
       this.ceras = data;
     });
 
+    this.firestore.getAllProducts('Baleros').subscribe(data => {
+      this.baleros = data;
+    });
+
+    this.firestore.getAllProducts('Playeras').subscribe(data => {
+      this.playeras = data;
+    });
+
 
   }
 
 }
-
-

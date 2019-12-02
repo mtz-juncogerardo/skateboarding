@@ -19,6 +19,7 @@ export class ProductDetailsComponent implements OnInit {
   gorras: any = [];
   tennis: any = [];
   baleros: any = [];
+  playeras: any = [];
 
   productDesc = '';
   productName = '';
@@ -36,6 +37,7 @@ export class ProductDetailsComponent implements OnInit {
   isTennis = false;
   isGorras = false;
   isBaleros = false;
+  isPlayeras = false;
   user: firebase.User;
 
   constructor(private carritoService: CarritoService,
@@ -73,6 +75,7 @@ export class ProductDetailsComponent implements OnInit {
       this.isGorras = false;
       this.isTennis = false;
       this.isBaleros = false;
+      this.isPlayeras = false;
       this.id = params.id;
 
       this.productService.getTablas().subscribe(data => {
@@ -108,6 +111,24 @@ export class ProductDetailsComponent implements OnInit {
             this.productSize = item.medida;
           }
 
+        });
+      });
+
+      this.productService.getPlayeras().subscribe(data => {
+        this.ruedas = data;
+        this.ruedas.forEach(item => {
+
+          if (this.id === item.id) {
+            this.isRuedas = true;
+            this.productDesc = item.description;
+            this.productName = item.name;
+            this.productImage1 = item.image1;
+            this.productImage2 = item.image2;
+            this.productPrice = item.price;
+            this.productExtra = item.extras;
+            this.productSize = item.medida;
+
+          }
         });
       });
 
