@@ -14,11 +14,19 @@ export class TiendaComponent implements OnInit {
   routeName = 'Tienda';
   productRender = [];
   trucks = false;
+  loading = true;
 
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute
   ) {
+  }
+
+  async onLoad() {
+    this.loading = true;
+    setTimeout(() => {
+      this.loading = false;
+    },1000);
   }
 
   ngOnInit() {

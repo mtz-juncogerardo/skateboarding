@@ -30,8 +30,9 @@
         <div *ngFor='let item of productRender' class="col-lg-4 col-md-6 mb-4">
           <div class="card h-100">
             <a [routerLink]="'/product/' + item.id">
-              <img [style.height]="trucks ? '4em' : '8em'" class="item-img" [src]="item.image1"  alt="">
-              <img class="item-img" [src]="item.image2"  alt="">
+              <img class="loader" *ngIf="loading" src="./assets/images/spinner.gif" alt="">
+              <img [hidden]="loading" (load)="onLoad()" [style.height]="trucks ? '4em' : '8em'" class="item-img" [src]="item.image1"/>
+              <img [hidden]="loading" (load)="onLoad()" class="item-img" [src]="item.image2"  alt="">
             </a>
             <div class="card-body">
               <h4 class="card-title">

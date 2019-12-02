@@ -1,13 +1,18 @@
-.item-img{
+.item-img {
   height: 8em;
 }
 
-.card a{
+.card a {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
 
-.categories{
+.categories {
   cursor: pointer;
+}
+
+.loader{
+  height: 100%;
+  width: 100%;
 }
