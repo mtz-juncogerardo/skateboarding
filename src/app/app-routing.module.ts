@@ -26,7 +26,7 @@ const routes: Routes = [
     path: 'home', component: InicioComponent
   },
   {
-    path: 'shop', component: TiendaComponent
+    path: 'shop', redirectTo: '/shop/tablas', pathMatch: 'full'
   },
   {
     path: 'shop/:category', component: TiendaComponent

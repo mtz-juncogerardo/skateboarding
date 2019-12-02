@@ -23,14 +23,14 @@ export class TiendaComponent implements OnInit {
   }
 
   async onLoad() {
-    this.loading = true;
     setTimeout(() => {
       this.loading = false;
-    },1000);
+    },3000);
   }
 
   ngOnInit() {
 
+    this.loading = true;
     this.route.params.subscribe((params: Params) => {
       const category = params.category;
 

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 import { Product } from './product.model';
 @Injectable({
@@ -41,5 +40,4 @@ export class FirestoreService {
   public createPedido(data: any, document: string){
     return this.firestore.collection(document).add(data);
   }
-
 }

@@ -27,6 +27,7 @@ export class AddProductComponent implements OnInit {
   downloadURL1: Observable<string>;
   downloadURL2: Observable<string>;
   uploadPercent: Observable<any>;
+  loading = false;
 
   constructor(private firestore: FirestoreService,
               private route: Router,
@@ -56,6 +57,7 @@ export class AddProductComponent implements OnInit {
   }
 
   uploadImage1(e) {
+    this.loading = true;
     this.file1 = e.target.files[0] as File;
     const path = `Products/${this.file1.name}`;
     const task = this.storage.upload(path, this.file1);
@@ -67,6 +69,7 @@ export class AddProductComponent implements OnInit {
         this.downloadURL1 = ref.getDownloadURL();
         this.downloadURL1.subscribe(url => {
           this.image1 = url;
+          this.loading = false;
         });
       })
     )
