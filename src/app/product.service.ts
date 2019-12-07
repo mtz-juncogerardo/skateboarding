@@ -122,4 +122,14 @@ export class ProductService {
       });
     }));
   }
+
+  getMochilas() {
+    return this.firestore.collection('Mochilas').snapshotChanges().pipe(map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as Product;
+        data.id = a.payload.doc.id;
+        return data;
+      });
+    }));
+  }
 }

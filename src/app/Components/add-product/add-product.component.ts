@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FirestoreService } from '../../firestore.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../../auth.service';
-import { HttpClient } from '@angular/common/http';
-import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
+import { AngularFireStorage } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 
@@ -32,7 +31,6 @@ export class AddProductComponent implements OnInit {
   constructor(private firestore: FirestoreService,
               private route: Router,
               private auth: AuthService,
-              private http: HttpClient,
               private storage: AngularFireStorage) { }
 
   addProduct() {

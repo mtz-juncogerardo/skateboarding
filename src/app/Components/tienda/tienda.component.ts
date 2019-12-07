@@ -124,6 +124,15 @@ export class TiendaComponent implements OnInit {
               this.productRender.push(item);
             });
           });
+
+          case 'mochilas':
+          this.trucks = false;
+          this.productRender = [];
+          this.productService.getMochilas().subscribe(data => {
+            data.forEach(item =>{
+              this.productRender.push(item);
+            });
+          });
       }
     });
   }

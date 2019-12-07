@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth.service';
 import { FirestoreService } from '../../firestore.service';
-import { of, from } from 'rxjs';
-import { Router } from '@angular/router';
 @Component({
   selector: 'app-administrator',
   templateUrl: './administrator.component.html',
@@ -25,11 +23,12 @@ export class AdministratorComponent implements OnInit {
   ceras: any;
   baleros: any;
   playeras: any;
+  mochilas: any;
 
   wantsDelete = false;
 
 
-  constructor(private route: Router, private authService: AuthService, private firestore: FirestoreService) {
+  constructor(private authService: AuthService, private firestore: FirestoreService) {
   }
 
   askConfirm() {
@@ -101,6 +100,10 @@ export class AdministratorComponent implements OnInit {
     });
 
     this.firestore.getAllProducts('Playeras').subscribe(data => {
+      this.playeras = data;
+    });
+
+    this.firestore.getAllProducts('Mochilas').subscribe(data => {
       this.playeras = data;
     });
 
