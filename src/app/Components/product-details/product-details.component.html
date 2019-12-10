@@ -5,8 +5,11 @@
       <div class="container product-wrapper">
 
         <div class="product-images">
-          <img [style.height]="isTrucks || isGorras ? '10em' : '33em'" [src]="productImage1" alt="frente">
-          <img [style.height]="isTrucks || isGorras ? '10em' : '33em'" *ngIf="productImage2" [src]="productImage2" alt="vuelta">
+          <!-- <img [style.height]="isTrucks ? '10em'; isGorras ? '20em'; isMochilas ? '20em'; isBaleros ? '15em'" [src]="productImage1" alt="frente"> -->
+          <img [src]="productImage1" *ngIf="isTrucks || isBaleros" [style.height]="'12em'">
+          <img [src]="productImage1" *ngIf="isMochilas || isGorras" [style.height]="'20em'">
+          <img [src]="productImage1" *ngIf="!isMochilas && !isGorras && !isBaleros && !isTrucks">
+          <img *ngIf="productImage2" [src]="productImage2" alt="vuelta">
         </div>
 
         <div class="col-md-7">

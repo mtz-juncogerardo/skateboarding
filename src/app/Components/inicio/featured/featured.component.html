@@ -12,8 +12,7 @@
             <a [routerLink]="'/product/' + item.id" class="btn btn-primary">Comprar Ahora</a>
         </div>
       </span>
-      <img class="product-img" [src]="item.image1" alt="">
+      <img class="product-img" [src]="item.image1" alt="" [style.height]="item.trucks ? '100px' : '250px'">
     </div>
   </div>
 </div>
-

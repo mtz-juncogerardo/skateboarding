@@ -21,6 +21,14 @@
   align-items: center;
 }
 
+.product-images{
+	height: 33em;
+  width: 50em;
+	display: flex;
+	align-items: center;
+	justify-content: center;;
+}
+
 .product-images img{
   max-height: 35em;
   margin-right: 50px;

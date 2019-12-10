@@ -104,7 +104,7 @@ export class AdministratorComponent implements OnInit {
     });
 
     this.firestore.getAllProducts('Mochilas').subscribe(data => {
-      this.playeras = data;
+      this.mochilas = data;
     });
 
 

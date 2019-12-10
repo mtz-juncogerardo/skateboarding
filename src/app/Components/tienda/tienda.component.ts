@@ -108,7 +108,7 @@ export class TiendaComponent implements OnInit {
           });
           break;
           case 'baleros':
-          this.trucks = false;
+          this.trucks = true;
           this.productRender = [];
           this.productService.getBaleros().subscribe(data => {
             data.forEach(item => {
@@ -124,7 +124,7 @@ export class TiendaComponent implements OnInit {
               this.productRender.push(item);
             });
           });
-
+          break;
           case 'mochilas':
           this.trucks = false;
           this.productRender = [];
