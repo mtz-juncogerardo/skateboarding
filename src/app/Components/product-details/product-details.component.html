@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="content-wrapper">
 
-    <div class="item-container">
+    <div class="item-container" *ngIf = "productName">
       <div class="container product-wrapper">
 
         <div class="product-images">
@@ -32,8 +32,13 @@
       </div>
     </div>
 
+    <div *ngIf="!productName">
+      <h3>El producto no existe o ya no se encuentra disponible.</h3>
+      <a routerLink="/shop" class="btn btn-md btn-info">Regresar a Tienda</a>
+    </div>
+
     <hr>
-    <div class="product-desc">
+    <div class="product-desc" *ngIf="productDesc">
       <h3>Detalles</h3>
       <li>{{productSize}}</li>
       <li>{{productExtra}}</li>

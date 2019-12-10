@@ -36,7 +36,6 @@
 .product-item img{
   object-fit: cover;
   width: auto;
-  height: 150px;
   transition: 0.3s;
 }
 
